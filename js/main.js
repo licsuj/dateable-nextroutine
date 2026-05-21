@@ -51,27 +51,6 @@
     els.forEach(el => el.classList.add('visible'));
   }
 
-  // Free tier email capture (inside pack card)
-  const emailInput = document.getElementById('email-input');
-  const emailSubmit = document.getElementById('email-submit');
-  if (emailSubmit && emailInput) {
-    emailSubmit.addEventListener('click', () => {
-      const email = emailInput.value.trim();
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        emailInput.style.borderColor = '#B5544A';
-        emailInput.focus();
-        return;
-      }
-      // TODO: Connect to Beehiiv or payment provider for free tier delivery
-      emailSubmit.textContent = 'Check your inbox ✓';
-      emailSubmit.disabled = true;
-      emailSubmit.style.opacity = '0.6';
-      emailInput.disabled = true;
-    });
-    emailInput.addEventListener('input', () => { emailInput.style.borderColor = ''; });
-    emailInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') emailSubmit.click(); });
-  }
-
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
