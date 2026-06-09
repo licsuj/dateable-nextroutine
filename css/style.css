@@ -425,10 +425,61 @@ button:focus:not(:focus-visible) { outline: none; }
 }
 
 /* ============================================================
-   ANTI-GURU
+   FREE SIGNUP (standalone section above packs)
    ============================================================ */
+.signup {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+.signup-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .signup-inner { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+}
+.signup-content {}
+.signup-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+.signup-title em { font-style: italic; }
+.signup-desc {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+.signup-includes {
+  list-style: none;
+}
+.signup-includes li {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  padding: 0.4rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+.signup-includes li::before {
+  content: '\2192';
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+.signup-form {
+  padding-top: 0.5rem;
+}
+
 /* ============================================================
-   PACKS
+   PACKS (paid tiers only)
    ============================================================ */
 .packs {
   padding: 80px 0;
@@ -442,6 +493,7 @@ button:focus:not(:focus-visible) { outline: none; }
 }
 @media (min-width: 768px) {
   .packs-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .packs-grid-two { grid-template-columns: 1fr 1fr; }
 }
 .pack-card {
   background: var(--bg-card);
@@ -523,14 +575,6 @@ button:focus:not(:focus-visible) { outline: none; }
   color: var(--accent);
 }
 
-/* Beehiiv embed inside free pack card */
-.pack-form {
-  margin-top: auto;
-}
-.pack-form iframe {
-  max-width: 100% !important;
-}
-
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -594,6 +638,7 @@ button:focus:not(:focus-visible) { outline: none; }
   .hero { padding: 100px 0 0; }
   .hero-inner { padding-bottom: 40px; }
   .hero-bottom { grid-template-columns: 1fr; }
-  .problem, .system, .packs { padding: 50px 0; }
+  .signup, .problem, .system, .packs { padding: 50px 0; }
+  .signup-inner { grid-template-columns: 1fr; }
   .nav .btn-sm { display: none; }
 }
