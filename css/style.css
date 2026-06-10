@@ -576,6 +576,162 @@ button:focus:not(:focus-visible) { outline: none; }
 }
 
 /* ============================================================
+   FOR / NOT FOR
+   ============================================================ */
+.for-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+.for-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+@media (min-width: 768px) {
+  .for-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+}
+.for-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.for-list {
+  list-style: none;
+}
+.for-list li {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  border-top: 1px solid var(--border);
+}
+.for-list li:last-child { border-bottom: 1px solid var(--border); }
+.for-yes li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+.for-no li::before {
+  content: '\2717';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   PRODUCT PREVIEWS
+   ============================================================ */
+.previews {
+  padding: 80px 0;
+  background: var(--bg-warm);
+  border-top: 1px solid var(--border);
+}
+.preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+@media (min-width: 768px) {
+  .preview-grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
+}
+.preview-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.preview-item img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+.preview-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+.faq-list {
+  max-width: 720px;
+  margin-top: 2rem;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 0;
+}
+.faq-item:last-child { border-bottom: 1px solid var(--border); }
+.faq-item summary {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  padding: 1.25rem 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+.faq-item[open] summary::after {
+  content: '\2212';
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  padding: 0 0 1.25rem;
+}
+
+/* ============================================================
+   FOUNDER NOTE
+   ============================================================ */
+.founder {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg-warm);
+}
+.founder-inner {
+  max-width: 640px;
+}
+.founder-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+.founder-sign {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 1.5rem;
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .footer {
@@ -638,7 +794,9 @@ button:focus:not(:focus-visible) { outline: none; }
   .hero { padding: 100px 0 0; }
   .hero-inner { padding-bottom: 40px; }
   .hero-bottom { grid-template-columns: 1fr; }
-  .signup, .problem, .system, .packs { padding: 50px 0; }
+  .signup, .problem, .system, .packs, .for-section, .previews, .faq, .founder { padding: 50px 0; }
   .signup-inner { grid-template-columns: 1fr; }
+  .for-grid { grid-template-columns: 1fr; }
+  .preview-grid { grid-template-columns: 1fr 1fr; }
   .nav .btn-sm { display: none; }
 }
