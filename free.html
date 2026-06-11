@@ -98,6 +98,11 @@ body {
 .r-label { font-family: var(--fm); font-size: .625rem; color: var(--tmut); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
 .r-band { font-size: .875rem; color: var(--tsec); }
 
+.r-archetype { text-align: center; padding: 24px; background: var(--card); border: 1px solid var(--border); margin-bottom: 28px; }
+.r-arch-label { font-family: var(--fm); font-size: .5625rem; letter-spacing: .12em; text-transform: uppercase; color: var(--tmut); margin-bottom: 8px; }
+.r-arch-name { font-family: var(--fd); font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1.1; margin-bottom: 8px; color: var(--accent); }
+.r-arch-desc { font-size: .8125rem; color: var(--tsec); line-height: 1.6; max-width: 400px; margin: 0 auto; }
+
 .r-pillars { margin-bottom: 28px; }
 .r-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
 .r-row:first-child { border-top: 1px solid var(--border); }
@@ -195,6 +200,13 @@ body {
     <div class="r-big" id="rBig"></div>
     <div class="r-band" id="rBand"></div>
   </div>
+
+  <div class="r-archetype" id="rArchetype">
+    <div class="r-arch-label">Your result type</div>
+    <div class="r-arch-name" id="rArchName"></div>
+    <div class="r-arch-desc" id="rArchDesc"></div>
+  </div>
+
   <div class="r-pillars" id="rPillars"></div>
   <div class="r-insight">
     <div class="r-itag">Your biggest gap</div>
@@ -245,6 +257,39 @@ var COLORS = {
   "Confidence & Mindset": "var(--bar-confidence)",
   "Communication & Social": "var(--bar-comm)",
   "Structured Action": "var(--bar-action)"
+};
+
+var ARCHETYPES = {
+  "Fitness & Health": {
+    name: "The Underbuilt Foundation",
+    desc: "You might have the right mindset and decent social skills, but your physical foundation is dragging everything else down. Energy, posture, and how you carry yourself start with fitness and health. This is the most fixable pillar \u2014 and the one with the fastest visible payoff."
+  },
+  "Style & Grooming": {
+    name: "The Invisible Profile",
+    desc: "You are probably a better catch than your photos and presentation suggest. The gap between who you are and how you come across visually is costing you matches before anyone reads your bio. Fix the visible layer first \u2014 it is the fastest win."
+  },
+  "Confidence & Mindset": {
+    name: "The Overthinker",
+    desc: "You replay conversations, hesitate before messaging, and avoid situations where rejection is possible. Your dating life is shaped more by what you do not do than by what you do. Confidence is not a feeling \u2014 it is evidence, built through small repeated actions."
+  },
+  "Communication & Social": {
+    name: "The Stalled Conversationalist",
+    desc: "You get matches but they go nowhere. Conversations die, dates feel like interviews, and you struggle to create the kind of connection that makes someone want to see you again. This is a skill gap, not a personality flaw \u2014 and skills are trainable."
+  },
+  "Structured Action": {
+    name: "The Restart Loop",
+    desc: "You keep trying new things \u2014 a new app, a new photo, a new approach \u2014 but nothing sticks because there is no system behind it. You do not need more advice. You need a structured weekly plan that turns random effort into compound progress."
+  }
+};
+
+var ARCHETYPE_MULTI = {
+  name: "The Full Reset",
+  desc: "Multiple foundations need work. Random fixes will not cut it \u2014 you need a structured system that addresses fitness, style, confidence, communication, and action in the right order. The good news: the biggest gains come in the first 4 weeks."
+};
+
+var ARCHETYPE_HIGH = {
+  name: "The Almost There",
+  desc: "Your foundations are solid. You are not starting from scratch \u2014 you are fine-tuning. The action plan will help you identify the one or two areas where a small improvement creates a disproportionate result."
 };
 
 var answers = [];
@@ -325,6 +370,26 @@ function showResults() {
   document.getElementById("rBig").textContent = totalPct + "/100";
   document.getElementById("rBand").textContent = band;
   document.getElementById("rPillars").innerHTML = html;
+
+  // Determine archetype
+  var weakCount = 0;
+  for (var w = 0; w < order.length; w++) {
+    var wp = scores[order[w]] || 0;
+    var wm = maxes[order[w]] || 8;
+    if (Math.round(wp / wm * 100) < 50) weakCount++;
+  }
+
+  var arch;
+  if (totalPct >= 80) {
+    arch = ARCHETYPE_HIGH;
+  } else if (weakCount >= 3) {
+    arch = ARCHETYPE_MULTI;
+  } else {
+    arch = ARCHETYPES[weakest];
+  }
+
+  document.getElementById("rArchName").textContent = arch.name;
+  document.getElementById("rArchDesc").textContent = arch.desc;
 
   // Mark weakest
   var rows = document.querySelectorAll(".r-row");
