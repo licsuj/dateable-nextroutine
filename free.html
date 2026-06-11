@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Free Dating Diagnostic for Men | Dateable by NextRoutine</title>
-<meta name="description" content="Find out what is holding back your dating results with a free 3-minute diagnostic across fitness, style, confidence, communication, and action.">
-<meta property="og:title" content="Free Dating Diagnostic for Men | Dateable by NextRoutine">
-<meta property="og:description" content="Score yourself across 5 foundations in 3 minutes. Free PDF — no spam, no course, no pickup nonsense.">
+<title>Free Dating Quiz for Men | Dateable by NextRoutine</title>
+<meta name="description" content="Find out what is holding back your dating results. Free 3-minute quiz across fitness, style, confidence, communication, and action.">
+<meta property="og:title" content="Free Dating Quiz for Men | Dateable by NextRoutine">
+<meta property="og:description" content="Score yourself across 5 foundations in 3 minutes. Free — no spam, no course, no pickup nonsense.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dateable.nextroutine.com/free">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,91 +21,114 @@ fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1006173865231321&ev=PageView&noscript=1"/></noscript>
 <style>
-:root{
-  --bg:#0F0F0D;--card:#1A1A18;--elev:#222220;--text:#FAFAF8;--tsec:#A0A09A;--tmut:#6E6E68;
-  --accent:#8B7355;--border:#2A2A28;--cta:#FAFAF8;--cta-text:#0F0F0D;
-  --bar-fitness:#5B8C5A;--bar-style:#7B6BA5;--bar-confidence:#C4793A;--bar-comm:#4A8FA8;--bar-action:#A85A5A;
-  --fd:'Instrument Serif',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'DM Mono','SF Mono',monospace;
+:root {
+  --bg: #0F0F0D;
+  --card: #1A1A18;
+  --elev: #222220;
+  --text: #FAFAF8;
+  --tsec: #A0A09A;
+  --tmut: #6E6E68;
+  --accent: #8B7355;
+  --border: #2A2A28;
+  --cta: #FAFAF8;
+  --cta-text: #0F0F0D;
+  --bar-fitness: #5B8C5A;
+  --bar-style: #7B6BA5;
+  --bar-confidence: #C4793A;
+  --bar-comm: #4A8FA8;
+  --bar-action: #A85A5A;
+  --fd: 'Instrument Serif', Georgia, serif;
+  --fb: 'DM Sans', system-ui, sans-serif;
+  --fm: 'DM Mono', 'SF Mono', monospace;
 }
-*,*::before,*::after{box-sizing:border-box}*{margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--fb);font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;min-height:100vh}
-.w{max-width:520px;margin:0 auto;padding:0 20px}
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--fb);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+.w { max-width: 520px; margin: 0 auto; padding: 0 20px; }
 
 /* Header */
-.hd{padding:14px 0;border-bottom:1px solid var(--border)}
-.hd-inner{display:flex;align-items:center;justify-content:space-between}
-.hd-brand{font-family:var(--fd);font-size:1.125rem;line-height:1}
-.hd-sub{font-family:var(--fm);font-size:.5625rem;color:var(--tmut);letter-spacing:.06em}
-.hd-badge{font-family:var(--fm);font-size:.5625rem;color:var(--tmut);letter-spacing:.05em;display:flex;align-items:center;gap:4px}
-.hd-badge svg{width:11px;height:11px}
+.hd { padding: 14px 0; border-bottom: 1px solid var(--border); }
+.hd-inner { display: flex; align-items: center; justify-content: space-between; }
+.hd-brand { font-family: var(--fd); font-size: 1.125rem; line-height: 1; }
+.hd-sub { font-family: var(--fm); font-size: .5625rem; color: var(--tmut); letter-spacing: .06em; }
+.hd-badge { font-family: var(--fm); font-size: .5625rem; color: var(--tmut); letter-spacing: .05em; display: flex; align-items: center; gap: 4px; }
+.hd-badge svg { width: 11px; height: 11px; }
 
 /* Screens */
-.screen{display:none;animation:fadeUp .4s ease both}
-.screen.active{display:block}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.screen { display: none; }
+.screen.active { display: block; animation: fadeUp .4s ease both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ── Intro Screen ── */
-.intro{padding:48px 0 40px;text-align:center}
-.intro h1{font-family:var(--fd);font-size:clamp(1.625rem,5.5vw,2.25rem);line-height:1.12;letter-spacing:-.015em;margin-bottom:14px}
-.intro p{font-size:.9375rem;color:var(--tsec);line-height:1.6;margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto}
-.intro-pillars{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:32px}
-.intro-pill{font-family:var(--fm);font-size:.625rem;letter-spacing:.06em;color:var(--tmut);background:var(--card);border:1px solid var(--border);padding:4px 10px}
-.btn-start{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;max-width:360px;height:52px;margin:0 auto 16px;background:var(--cta);color:var(--cta-text);font-family:var(--fb);font-size:.9375rem;font-weight:600;border:none;cursor:pointer;transition:transform .2s}
-.btn-start:hover{transform:translateY(-1px)}
-.btn-start svg{width:16px;height:16px}
-.intro-micro{font-family:var(--fm);font-size:.5625rem;color:var(--tmut);letter-spacing:.03em}
+/* Intro */
+.intro { padding: 48px 0 40px; text-align: center; }
+.intro h1 { font-family: var(--fd); font-size: clamp(1.625rem, 5.5vw, 2.25rem); line-height: 1.12; letter-spacing: -.015em; margin-bottom: 14px; }
+.intro p { font-size: .9375rem; color: var(--tsec); line-height: 1.6; margin-bottom: 28px; max-width: 440px; margin-left: auto; margin-right: auto; }
+.intro-pills { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-bottom: 32px; }
+.intro-pill { font-family: var(--fm); font-size: .625rem; letter-spacing: .06em; color: var(--tmut); background: var(--card); border: 1px solid var(--border); padding: 4px 10px; }
+.btn-go { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 360px; height: 52px; margin: 0 auto 16px; background: var(--cta); color: var(--cta-text); font-family: var(--fb); font-size: .9375rem; font-weight: 600; border: none; cursor: pointer; transition: transform .2s; }
+.btn-go:hover { transform: translateY(-1px); }
+.btn-go svg { width: 16px; height: 16px; }
+.intro-micro { font-family: var(--fm); font-size: .5625rem; color: var(--tmut); letter-spacing: .03em; }
 
-/* ── Quiz Screen ── */
-.quiz{padding:32px 0}
-.q-progress{margin-bottom:24px}
-.q-progress-bar{height:3px;background:var(--border);position:relative;margin-bottom:8px}
-.q-progress-fill{height:100%;background:var(--accent);transition:width .3s ease}
-.q-progress-text{font-family:var(--fm);font-size:.5625rem;color:var(--tmut);letter-spacing:.08em}
-.q-pillar{font-family:var(--fm);font-size:.5625rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.q-text{font-family:var(--fd);font-size:1.25rem;line-height:1.25;margin-bottom:24px}
-.q-options{display:flex;flex-direction:column;gap:10px}
-.q-opt{display:block;width:100%;text-align:left;padding:14px 16px;background:var(--card);border:1px solid var(--border);color:var(--text);font-family:var(--fb);font-size:.875rem;cursor:pointer;transition:border-color .2s,background .2s}
-.q-opt:hover{border-color:var(--accent);background:var(--elev)}
-.q-opt:active{background:var(--accent);color:var(--bg)}
+/* Quiz */
+.quiz { padding: 32px 0; }
+.q-bar { height: 3px; background: var(--border); margin-bottom: 8px; }
+.q-fill { height: 100%; background: var(--accent); transition: width .3s ease; }
+.q-count { font-family: var(--fm); font-size: .5625rem; color: var(--tmut); letter-spacing: .08em; margin-bottom: 24px; }
+.q-pillar { font-family: var(--fm); font-size: .5625rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+.q-text { font-family: var(--fd); font-size: 1.25rem; line-height: 1.25; margin-bottom: 24px; }
+.q-opts { display: flex; flex-direction: column; gap: 10px; }
+.q-opt { display: block; width: 100%; text-align: left; padding: 14px 16px; background: var(--card); border: 1px solid var(--border); color: var(--text); font-family: var(--fb); font-size: .875rem; line-height: 1.4; cursor: pointer; transition: border-color .2s, background .2s; }
+.q-opt:hover { border-color: var(--accent); background: var(--elev); }
+.q-opt:active { background: var(--accent); color: var(--bg); }
 
-/* ── Results Screen ── */
-.results{padding:40px 0}
-.r-header{text-align:center;margin-bottom:32px}
-.r-score-big{font-family:var(--fd);font-size:3rem;line-height:1;margin-bottom:4px}
-.r-score-label{font-family:var(--fm);font-size:.625rem;color:var(--tmut);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
-.r-band{font-size:.875rem;color:var(--tsec)}
-.r-pillars{margin-bottom:28px}
-.r-pillar{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
-.r-pillar:first-child{border-top:1px solid var(--border)}
-.r-pillar-name{font-family:var(--fm);font-size:.6875rem;letter-spacing:.06em;width:110px;flex-shrink:0;color:var(--tsec)}
-.r-pillar-bar{flex:1;height:6px;background:var(--border);position:relative}
-.r-pillar-fill{height:100%;transition:width .8s ease}
-.r-pillar-pct{font-family:var(--fm);font-size:.6875rem;color:var(--tmut);width:36px;text-align:right}
-.r-pillar.weakest .r-pillar-name{color:var(--text);font-weight:500}
-.r-pillar.weakest .r-pillar-pct{color:var(--accent)}
+/* Results */
+.results { padding: 40px 0; }
+.r-head { text-align: center; margin-bottom: 32px; }
+.r-big { font-family: var(--fd); font-size: 3rem; line-height: 1; margin-bottom: 4px; }
+.r-label { font-family: var(--fm); font-size: .625rem; color: var(--tmut); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+.r-band { font-size: .875rem; color: var(--tsec); }
 
-.r-insight{background:var(--card);border:1px solid var(--border);padding:20px;margin-bottom:28px}
-.r-insight-tag{font-family:var(--fm);font-size:.5625rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.r-insight-title{font-family:var(--fd);font-size:1.125rem;margin-bottom:6px}
-.r-insight-text{font-size:.8125rem;color:var(--tsec);line-height:1.6}
+.r-pillars { margin-bottom: 28px; }
+.r-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.r-row:first-child { border-top: 1px solid var(--border); }
+.r-name { font-family: var(--fm); font-size: .6875rem; letter-spacing: .06em; width: 110px; flex-shrink: 0; color: var(--tsec); }
+.r-track { flex: 1; height: 6px; background: var(--border); }
+.r-trackfill { height: 100%; width: 0; transition: width .8s ease; }
+.r-pct { font-family: var(--fm); font-size: .6875rem; color: var(--tmut); width: 36px; text-align: right; }
+.r-row.weak .r-name { color: var(--text); font-weight: 500; }
+.r-row.weak .r-pct { color: var(--accent); }
 
-.r-cta-section{text-align:center}
-.r-cta-label{font-family:var(--fm);font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.r-cta-title{font-family:var(--fd);font-size:1.25rem;margin-bottom:4px}
-.r-cta-desc{font-size:.8125rem;color:var(--tsec);margin-bottom:16px}
-.r-form-card{background:var(--card);border:1px solid var(--border);padding:20px;margin-bottom:12px;text-align:left}
-.r-form-label{font-family:var(--fm);font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
-.r-micro{font-family:var(--fm);font-size:.5625rem;color:var(--tmut);letter-spacing:.03em}
+.r-insight { background: var(--card); border: 1px solid var(--border); padding: 20px; margin-bottom: 28px; }
+.r-itag { font-family: var(--fm); font-size: .5625rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.r-ititle { font-family: var(--fd); font-size: 1.125rem; margin-bottom: 6px; }
+.r-itext { font-size: .8125rem; color: var(--tsec); line-height: 1.6; }
+
+.r-cta { text-align: center; }
+.r-ctag { font-family: var(--fm); font-size: .625rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.r-ctitle { font-family: var(--fd); font-size: 1.25rem; margin-bottom: 4px; }
+.r-cdesc { font-size: .8125rem; color: var(--tsec); margin-bottom: 16px; }
+.r-fcard { background: var(--card); border: 1px solid var(--border); padding: 20px; margin-bottom: 12px; text-align: left; }
+.r-flabel { font-family: var(--fm); font-size: .625rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block; }
+.r-micro { font-family: var(--fm); font-size: .5625rem; color: var(--tmut); letter-spacing: .03em; }
 
 /* Footer */
-.ft{padding:20px 0 32px;text-align:center}
-.ft a{font-family:var(--fm);font-size:.5625rem;color:var(--tmut);text-decoration:none;letter-spacing:.05em}
+.ft { padding: 20px 0 32px; text-align: center; }
+.ft a { font-family: var(--fm); font-size: .5625rem; color: var(--tmut); text-decoration: none; letter-spacing: .05em; }
 
-@media(min-width:768px){
-  .intro{padding:64px 0 48px}
-  .quiz{padding:48px 0}
-  .results{padding:56px 0}
+@media (min-width: 768px) {
+  .intro { padding: 64px 0 48px; }
+  .quiz { padding: 48px 0; }
+  .results { padding: 56px 0; }
 }
 </style>
 </head>
@@ -114,76 +137,79 @@ body{font-family:var(--fb);font-size:16px;line-height:1.6;color:var(--text);back
 <header class="hd">
 <div class="w">
   <div class="hd-inner">
-    <div><div class="hd-brand">Dateable</div><div class="hd-sub">by NextRoutine</div></div>
-    <div class="hd-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Built by NextRoutine</div>
+    <div>
+      <div class="hd-brand">Dateable</div>
+      <div class="hd-sub">by NextRoutine</div>
+    </div>
+    <div class="hd-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Built by NextRoutine
+    </div>
   </div>
 </div>
 </header>
 
-<!-- ═══ SCREEN 1: INTRO ═══ -->
-<div class="screen active" id="screen-intro">
+<!-- INTRO -->
+<div class="screen active" id="s-intro">
 <section class="intro">
 <div class="w">
   <h1>Find out what is actually holding back your dating results.</h1>
-  <p>Most men try to fix dating with new photos, bios, or paid boosts. This free 3-minute diagnostic shows whether your real gap is Fitness, Style, Confidence, Communication, or Action.</p>
-  <div class="intro-pillars">
+  <p>Most men try to fix dating with new photos, bios, or paid boosts. This free 3-minute quiz shows whether your real gap is Fitness, Style, Confidence, Communication, or Action.</p>
+  <div class="intro-pills">
     <span class="intro-pill">Fitness</span>
     <span class="intro-pill">Style</span>
     <span class="intro-pill">Confidence</span>
     <span class="intro-pill">Communication</span>
     <span class="intro-pill">Action</span>
   </div>
-  <button class="btn-start" id="startQuiz">
+  <button class="btn-go" onclick="startQuiz()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-    Start the 3-minute diagnostic
+    Take the 3-minute quiz
   </button>
-  <div class="intro-micro">10 questions • No signup to start • Free</div>
+  <div class="intro-micro">10 questions &bull; No signup to start &bull; Free</div>
 </div>
 </section>
 </div>
 
-<!-- ═══ SCREEN 2: QUIZ ═══ -->
-<div class="screen" id="screen-quiz">
+<!-- QUIZ -->
+<div class="screen" id="s-quiz">
 <section class="quiz">
 <div class="w">
-  <div class="q-progress">
-    <div class="q-progress-bar"><div class="q-progress-fill" id="progressFill" style="width:10%"></div></div>
-    <div class="q-progress-text" id="progressText">Question 1 of 10</div>
+  <div>
+    <div class="q-bar"><div class="q-fill" id="qFill" style="width:10%"></div></div>
+    <div class="q-count" id="qCount">Question 1 of 10</div>
   </div>
   <div class="q-pillar" id="qPillar"></div>
   <div class="q-text" id="qText"></div>
-  <div class="q-options" id="qOptions"></div>
+  <div class="q-opts" id="qOpts"></div>
 </div>
 </section>
 </div>
 
-<!-- ═══ SCREEN 3: RESULTS ═══ -->
-<div class="screen" id="screen-results">
+<!-- RESULTS -->
+<div class="screen" id="s-results">
 <section class="results">
 <div class="w">
-  <div class="r-header">
-    <div class="r-score-label">Your Dating Foundation Score</div>
-    <div class="r-score-big" id="rScoreBig">—</div>
+  <div class="r-head">
+    <div class="r-label">Your Dating Foundation Score</div>
+    <div class="r-big" id="rBig"></div>
     <div class="r-band" id="rBand"></div>
   </div>
-
   <div class="r-pillars" id="rPillars"></div>
-
-  <div class="r-insight" id="rInsight">
-    <div class="r-insight-tag">Your biggest gap</div>
-    <div class="r-insight-title" id="rInsightTitle"></div>
-    <div class="r-insight-text" id="rInsightText"></div>
+  <div class="r-insight">
+    <div class="r-itag">Your biggest gap</div>
+    <div class="r-ititle" id="rITitle"></div>
+    <div class="r-itext" id="rIText"></div>
   </div>
-
-  <div class="r-cta-section">
-    <div class="r-cta-label">Your action plan is ready</div>
-    <div class="r-cta-title">Get your personalised action plan</div>
-    <div class="r-cta-desc">A 5-page PDF with your scorecard, the 5-pillar system map, and one action per pillar — starting with your weakest foundation.</div>
-    <div class="r-form-card">
-      <span class="r-form-label">Enter your email to get the PDF</span>
+  <div class="r-cta">
+    <div class="r-ctag">Your action plan is ready</div>
+    <div class="r-ctitle">Get your personalised action plan</div>
+    <div class="r-cdesc">A 5-page PDF with your scorecard, the 5-pillar system map, and one action per pillar &mdash; starting with your weakest foundation.</div>
+    <div class="r-fcard">
+      <span class="r-flabel">Enter your email to get the PDF</span>
       <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="893d8c2c-46ea-4ead-b5d9-e0a78026db77"></script>
     </div>
-    <div class="r-micro">PDF sent instantly • No spam • No pickup nonsense</div>
+    <div class="r-micro">PDF sent instantly &bull; No spam &bull; No pickup nonsense</div>
   </div>
 </div>
 </section>
@@ -192,151 +218,143 @@ body{font-family:var(--fb);font-size:16px;line-height:1.6;color:var(--text);back
 <footer class="ft"><div class="w"><a href="https://dateable.nextroutine.com">dateable.nextroutine.com</a></div></footer>
 
 <script>
-(function(){
-  // ── Questions ──
-  var Q = [
-    {pillar:'Fitness & Health',text:'Be honest: if you had to run for a bus right now, how would that go?',opts:["I'd miss it and pretend I wasn't trying","I'd make it but need a minute to recover","Fine — I move regularly","I'd barely notice. I train consistently."]},
-    {pillar:'Fitness & Health',text:'What does your average weeknight look like at 11pm?',opts:['Phone in bed, no real routine','Varies — some good nights, some terrible','Usually in bed at a reasonable time','Locked in — sleep, nutrition, recovery all handled']},
-    {pillar:'Style & Grooming',text:"You're meeting someone for a date in 2 hours. How do you feel about what's in your wardrobe?",opts:["Panic. Nothing looks right.","I'd find something acceptable after 20 minutes of trying","I have a few reliable outfits","I know exactly what I'd wear"]},
-    {pillar:'Style & Grooming',text:'A friend takes a candid photo of you at a bar. Your honest reaction?',opts:['Delete that immediately',"It's fine... from certain angles","I'd be OK with it","I'd use it on my dating profile"]},
-    {pillar:'Confidence & Mindset',text:'You see someone attractive at a coffee shop. What actually happens?',opts:["I think about saying something, don't, then replay it for 3 hours","I'd want to but would need someone to push me","I might say something if the moment felt right","I'd find a natural way to start a conversation"]},
-    {pillar:'Confidence & Mindset',text:'Someone you're interested in stops responding. What does your inner voice say?',opts:['"I\'m not attractive enough" — and it stays with me for days','It stings and I overanalyse what I said wrong','Annoying, but I move on within a few hours',"Their loss — I don't take it personally"]},
-    {pillar:'Communication & Social',text:'Your last 5 dating app conversations. How many made it past 10 messages?',opts:['Zero. Maybe one.','One or two at best','About half',"Most of them — conversations aren't my problem"]},
-    {pillar:'Communication & Social',text:"You're at a party where you know almost nobody. What do you do?",opts:['Stand near the wall, check my phone, leave early','Stick with the one person I came with','Eventually talk to a few people after warming up',"I'm comfortable walking up to anyone"]},
-    {pillar:'Structured Action',text:"What's your current strategy for improving your dating life?",opts:["Strategy? I'm just swiping and hoping",'I watch YouTube videos when I get frustrated',"I've tried a few things but nothing sticks",'I have specific habits I work on every week']},
-    {pillar:'Structured Action',text:"When something doesn't work in your dating life, what do you do?",opts:['Nothing — I get frustrated and take a break from apps','Change something random and see what happens','Try to figure out what went wrong','Track what works, adjust, and keep going']}
-  ];
+var QUESTIONS = [
+  {pillar:"Fitness & Health", text:"Be honest: if you had to run for a bus right now, how would that go?", opts:["I would miss it and pretend I was not trying","I would make it but need a minute to recover","Fine \u2014 I move regularly","I would barely notice. I train consistently."]},
+  {pillar:"Fitness & Health", text:"What does your average weeknight look like at 11pm?", opts:["Phone in bed, no real routine","Varies \u2014 some good nights, some terrible","Usually in bed at a reasonable time","Locked in \u2014 sleep, nutrition, recovery all handled"]},
+  {pillar:"Style & Grooming", text:"You are meeting someone for a date in 2 hours. How do you feel about your wardrobe?", opts:["Panic. Nothing looks right.","I would find something acceptable after 20 minutes","I have a few reliable outfits","I know exactly what I would wear"]},
+  {pillar:"Style & Grooming", text:"A friend takes a candid photo of you at a bar. Your honest reaction?", opts:["Delete that immediately","It is fine... from certain angles","I would be OK with it","I would use it on my dating profile"]},
+  {pillar:"Confidence & Mindset", text:"You see someone attractive at a coffee shop. What actually happens?", opts:["I think about saying something, do not, then replay it for 3 hours","I would want to but would need someone to push me","I might say something if the moment felt right","I would find a natural way to start a conversation"]},
+  {pillar:"Confidence & Mindset", text:"Someone you are interested in stops responding. What does your inner voice say?", opts:["I am not attractive enough \u2014 and it stays with me for days","It stings and I overanalyse what I said wrong","Annoying, but I move on within a few hours","Their loss \u2014 I do not take it personally"]},
+  {pillar:"Communication & Social", text:"Your last 5 dating app conversations. How many made it past 10 messages?", opts:["Zero. Maybe one.","One or two at best","About half","Most of them \u2014 conversations are not my problem"]},
+  {pillar:"Communication & Social", text:"You are at a party where you know almost nobody. What do you do?", opts:["Stand near the wall, check my phone, leave early","Stick with the one person I came with","Eventually talk to a few people after warming up","I am comfortable walking up to anyone"]},
+  {pillar:"Structured Action", text:"What is your current strategy for improving your dating life?", opts:["Strategy? I am just swiping and hoping","I watch YouTube videos when I get frustrated","I have tried a few things but nothing sticks","I have specific habits I work on every week"]},
+  {pillar:"Structured Action", text:"When something does not work in your dating life, what do you do?", opts:["Nothing \u2014 I get frustrated and take a break from apps","Change something random and see what happens","Try to figure out what went wrong","Track what works, adjust, and keep going"]}
+];
 
-  var pillarMap = {
-    'Fitness & Health':{key:'fitness',color:'var(--bar-fitness)'},
-    'Style & Grooming':{key:'style',color:'var(--bar-style)'},
-    'Confidence & Mindset':{key:'confidence',color:'var(--bar-confidence)'},
-    'Communication & Social':{key:'communication',color:'var(--bar-comm)'},
-    'Structured Action':{key:'action',color:'var(--bar-action)'}
-  };
+var INSIGHTS = {
+  "Fitness & Health": {title:"Fitness & Health", text:"Your physical foundation is your weakest area. Energy, posture, and how you carry yourself all start here. The action plan focuses on minimum-effective-dose habits: sleep, movement, hydration, and one improved meal."},
+  "Style & Grooming": {title:"Style & Grooming", text:"How you present yourself visually is your biggest gap. This is the fastest pillar to improve \u2014 wardrobe audit, grooming basics, and photos that actually represent you well."},
+  "Confidence & Mindset": {title:"Confidence & Mindset", text:"Fear of rejection and avoidance are holding you back more than any profile issue. Confidence is built through progressive exposure, not motivation. The action plan starts with micro-challenges that build real evidence."},
+  "Communication & Social": {title:"Communication & Social", text:"Your conversations are where attraction dies. Messages, openers, date flow, and listening skills all compound. The action plan gives you frameworks you can use immediately \u2014 not scripts, structures."},
+  "Structured Action": {title:"Structured Action", text:"You know what to do but you are not doing it consistently. Without a system, improvement is random. The action plan gives you a weekly structure so progress becomes automatic."}
+};
 
-  var pillarInsights = {
-    'Fitness & Health':{title:'Fitness & Health',text:'Your physical foundation is your weakest area. Energy, posture, and how you carry yourself all start here. The action plan focuses on minimum-effective-dose habits: sleep, movement, hydration, and one improved meal.'},
-    'Style & Grooming':{title:'Style & Grooming',text:'How you present yourself visually is your biggest gap. This is the fastest pillar to improve — wardrobe audit, grooming basics, and photos that actually represent you. The action plan gives you a specific checklist.'},
-    'Confidence & Mindset':{title:'Confidence & Mindset',text:'Fear of rejection and avoidance are holding you back more than any profile issue. Confidence is built through progressive exposure, not motivation. The action plan starts with micro-challenges that build evidence.'},
-    'Communication & Social':{title:'Communication & Social',text:'Your conversations are where attraction dies. Messages, openers, date flow, and listening skills all compound. The action plan gives you frameworks you can use immediately — not scripts, structures.'},
-    'Structured Action':{title:'Structured Action',text:'You know what to do but you are not doing it consistently. Without a system, improvement is random. The action plan gives you a weekly structure so progress becomes automatic, not aspirational.'}
-  };
+var COLORS = {
+  "Fitness & Health": "var(--bar-fitness)",
+  "Style & Grooming": "var(--bar-style)",
+  "Confidence & Mindset": "var(--bar-confidence)",
+  "Communication & Social": "var(--bar-comm)",
+  "Structured Action": "var(--bar-action)"
+};
 
-  var answers = [];
-  var current = 0;
+var answers = [];
+var current = 0;
 
-  // ── Show screen ──
-  function showScreen(id){
-    document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});
-    document.getElementById(id).classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
+function show(id) {
+  var screens = document.querySelectorAll(".screen");
+  for (var i = 0; i < screens.length; i++) screens[i].classList.remove("active");
+  document.getElementById(id).classList.add("active");
+  window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+function renderQ() {
+  var q = QUESTIONS[current];
+  document.getElementById("qFill").style.width = ((current + 1) / QUESTIONS.length * 100) + "%";
+  document.getElementById("qCount").textContent = "Question " + (current + 1) + " of " + QUESTIONS.length;
+  document.getElementById("qPillar").textContent = q.pillar;
+  document.getElementById("qText").textContent = q.text;
+
+  var container = document.getElementById("qOpts");
+  container.innerHTML = "";
+  for (var i = 0; i < q.opts.length; i++) {
+    var btn = document.createElement("button");
+    btn.className = "q-opt";
+    btn.textContent = q.opts[i];
+    btn.setAttribute("data-score", i + 1);
+    btn.onclick = function() { pickAnswer(parseInt(this.getAttribute("data-score"))); };
+    container.appendChild(btn);
   }
+}
 
-  // ── Render question ──
-  function renderQ(){
-    var q = Q[current];
-    document.getElementById('progressFill').style.width = ((current+1)/Q.length*100)+'%';
-    document.getElementById('progressText').textContent = 'Question '+(current+1)+' of '+Q.length;
-    document.getElementById('qPillar').textContent = q.pillar;
-    document.getElementById('qText').textContent = q.text;
-
-    var opts = document.getElementById('qOptions');
-    opts.innerHTML = '';
-    q.opts.forEach(function(opt,i){
-      var btn = document.createElement('button');
-      btn.className = 'q-opt';
-      btn.textContent = opt;
-      btn.addEventListener('click',function(){ selectAnswer(i+1); });
-      opts.appendChild(btn);
-    });
-  }
-
-  // ── Handle answer ──
-  function selectAnswer(score){
-    answers.push({pillar:Q[current].pillar, score:score});
-    current++;
-    if(current < Q.length){
-      // Brief delay for feedback feel
-      showScreen('screen-quiz');
-      renderQ();
-    } else {
-      if(typeof fbq==='function') fbq('track','QuizComplete');
-      showResults();
-    }
-  }
-
-  // ── Calculate & show results ──
-  function showResults(){
-    var pillarScores = {};
-    var pillarMax = {};
-    answers.forEach(function(a){
-      var key = a.pillar;
-      pillarScores[key] = (pillarScores[key]||0) + a.score;
-      pillarMax[key] = (pillarMax[key]||0) + 4;
-    });
-
-    var totalScore = 0;
-    var totalMax = 0;
-    var weakest = null;
-    var weakestPct = 101;
-    var pillarsHTML = '';
-    var pillarOrder = ['Fitness & Health','Style & Grooming','Confidence & Mindset','Communication & Social','Structured Action'];
-
-    pillarOrder.forEach(function(name){
-      var score = pillarScores[name]||0;
-      var max = pillarMax[name]||8;
-      var pct = Math.round(score/max*100);
-      totalScore += score;
-      totalMax += max;
-
-      var isWeakest = pct < weakestPct;
-      if(isWeakest){ weakest = name; weakestPct = pct; }
-
-      var info = pillarMap[name];
-      pillarsHTML += '<div class="r-pillar" data-pillar="'+name+'" data-pct="'+pct+'">';
-      pillarsHTML += '<div class="r-pillar-name">'+name+'</div>';
-      pillarsHTML += '<div class="r-pillar-bar"><div class="r-pillar-fill" style="width:0%;background:'+info.color+'"></div></div>';
-      pillarsHTML += '<div class="r-pillar-pct">'+pct+'%</div>';
-      pillarsHTML += '</div>';
-    });
-
-    var totalPct = Math.round(totalScore/totalMax*100);
-    var band = totalPct < 40 ? 'Full reset needed' : totalPct < 60 ? 'Foundations inconsistent' : totalPct < 80 ? 'Good base — specific weak points' : 'Strong foundation — optimise and maintain';
-
-    document.getElementById('rScoreBig').textContent = totalPct+'/100';
-    document.getElementById('rBand').textContent = band;
-    document.getElementById('rPillars').innerHTML = pillarsHTML;
-
-    // Mark weakest
-    document.querySelectorAll('.r-pillar').forEach(function(el){
-      if(el.dataset.pillar === weakest) el.classList.add('weakest');
-    });
-
-    // Insight
-    var insight = pillarInsights[weakest];
-    document.getElementById('rInsightTitle').textContent = insight.title;
-    document.getElementById('rInsightText').textContent = insight.text;
-
-    showScreen('screen-results');
-
-    // Animate bars
-    setTimeout(function(){
-      document.querySelectorAll('.r-pillar-fill').forEach(function(bar){
-        var pct = bar.parentElement.parentElement.dataset.pct;
-        bar.style.width = pct+'%';
-      });
-    },100);
-  }
-
-  // ── Start quiz ──
-  document.getElementById('startQuiz').addEventListener('click',function(){
-    if(typeof fbq==='function') fbq('track','QuizStart');
-    showScreen('screen-quiz');
+function pickAnswer(score) {
+  answers.push({pillar: QUESTIONS[current].pillar, score: score});
+  current++;
+  if (current < QUESTIONS.length) {
+    show("s-quiz");
     renderQ();
-  });
+  } else {
+    if (typeof fbq === "function") fbq("track", "QuizComplete");
+    showResults();
+  }
+}
 
-})();
+function showResults() {
+  var scores = {};
+  var maxes = {};
+  var order = ["Fitness & Health", "Style & Grooming", "Confidence & Mindset", "Communication & Social", "Structured Action"];
+
+  for (var i = 0; i < answers.length; i++) {
+    var p = answers[i].pillar;
+    scores[p] = (scores[p] || 0) + answers[i].score;
+    maxes[p] = (maxes[p] || 0) + 4;
+  }
+
+  var total = 0, totalMax = 0, weakest = null, weakestPct = 999;
+  var html = "";
+
+  for (var j = 0; j < order.length; j++) {
+    var name = order[j];
+    var s = scores[name] || 0;
+    var m = maxes[name] || 8;
+    var pct = Math.round(s / m * 100);
+    total += s;
+    totalMax += m;
+
+    if (pct < weakestPct) { weakest = name; weakestPct = pct; }
+
+    html += '<div class="r-row" data-pct="' + pct + '">';
+    html += '<div class="r-name">' + name + '</div>';
+    html += '<div class="r-track"><div class="r-trackfill" style="background:' + COLORS[name] + '"></div></div>';
+    html += '<div class="r-pct">' + pct + '%</div>';
+    html += '</div>';
+  }
+
+  var totalPct = Math.round(total / totalMax * 100);
+  var band = totalPct < 40 ? "Full reset needed" : totalPct < 60 ? "Foundations inconsistent" : totalPct < 80 ? "Good base \u2014 specific weak points" : "Strong foundation \u2014 optimise and maintain";
+
+  document.getElementById("rBig").textContent = totalPct + "/100";
+  document.getElementById("rBand").textContent = band;
+  document.getElementById("rPillars").innerHTML = html;
+
+  // Mark weakest
+  var rows = document.querySelectorAll(".r-row");
+  for (var k = 0; k < rows.length; k++) {
+    var rName = rows[k].querySelector(".r-name").textContent;
+    if (rName === weakest) rows[k].classList.add("weak");
+  }
+
+  // Insight
+  var ins = INSIGHTS[weakest];
+  document.getElementById("rITitle").textContent = ins.title;
+  document.getElementById("rIText").textContent = ins.text;
+
+  show("s-results");
+
+  // Animate bars
+  setTimeout(function() {
+    var fills = document.querySelectorAll(".r-trackfill");
+    for (var f = 0; f < fills.length; f++) {
+      var row = fills[f].closest(".r-row");
+      fills[f].style.width = row.getAttribute("data-pct") + "%";
+    }
+  }, 150);
+}
+
+function startQuiz() {
+  if (typeof fbq === "function") fbq("track", "QuizStart");
+  show("s-quiz");
+  renderQ();
+}
 </script>
 
 </body>
