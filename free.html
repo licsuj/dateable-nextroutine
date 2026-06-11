@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Free Dating Diagnostic — Score Yourself in 3 Minutes</title>
-<meta name="description" content="Free 5-category diagnostic for men. Score yourself on fitness, style, confidence, communication, and action. Takes 3 minutes.">
+<title>Free Dating Diagnostic for Men | Dateable by NextRoutine</title>
+<meta name="description" content="Find out what is holding back your dating results with a free 3-minute diagnostic across fitness, style, confidence, communication, and action.">
+<meta property="og:title" content="Free Dating Diagnostic for Men | Dateable by NextRoutine">
+<meta property="og:description" content="Score yourself across 5 foundations in 3 minutes. Free PDF diagnostic — no spam, no course, no pickup nonsense.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dateable.nextroutine.com/free">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -29,178 +33,507 @@ src="https://www.facebook.com/tr?id=1006173865231321&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 <style>
 :root {
-  --bg: #FAFAF8;
-  --bg-warm: #F3F1EC;
-  --text: #1A1A18;
-  --text-secondary: #555550;
-  --text-muted: #8E8E86;
+  --bg: #0F0F0D;
+  --bg-card: #1A1A18;
+  --bg-card-hover: #222220;
+  --text: #FAFAF8;
+  --text-sec: #A0A09A;
+  --text-muted: #6E6E68;
   --accent: #6B5B45;
-  --border: #DDDBD5;
+  --border: #2A2A28;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'DM Mono', 'SF Mono', monospace;
 }
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1.5rem;
   -webkit-font-smoothing: antialiased;
 }
-.page {
-  max-width: 520px;
+
+/* ── Container ── */
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Header ── */
+.lp-header {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.lp-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lp-brand {
+  display: flex;
+  flex-direction: column;
+}
+.lp-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--text);
+  line-height: 1.1;
+}
+.lp-brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+.lp-trust-badge {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.lp-trust-badge svg { width: 12px; height: 12px; }
+
+/* ── Hero ── */
+.lp-hero {
+  padding: 48px 0 40px;
+}
+.lp-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.lp-hero-desc {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-sec);
+  margin-bottom: 32px;
+}
+
+/* ── Form ── */
+.lp-form-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.lp-form-wrap .beehiiv-embed {
   width: 100%;
 }
-.tag {
-  font-family: 'DM Mono', monospace;
+.lp-form-label {
+  font-family: var(--font-mono);
   font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* ── Trust microcopy ── */
+.lp-trust-line {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 48px;
+}
+.lp-trust-line span { white-space: nowrap; }
+
+/* ── PDF Preview ── */
+.lp-preview {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 32px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.lp-preview-pages {
+  position: relative;
+  width: 120px;
+  height: 160px;
+  flex-shrink: 0;
+}
+.lp-preview-page {
+  position: absolute;
+  width: 100px;
+  height: 140px;
+  background: #252523;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.lp-preview-page:nth-child(1) { top: 0; left: 0; transform: rotate(-3deg); }
+.lp-preview-page:nth-child(2) { top: 4px; left: 8px; transform: rotate(1deg); }
+.lp-preview-page:nth-child(3) {
+  top: 8px; left: 16px; transform: rotate(2deg);
+  background: #2A2A28;
+  border-color: var(--accent);
+}
+.lp-preview-page:nth-child(3) .page-inner {
+  text-align: center;
+  padding: 12px;
+}
+.lp-preview-page .page-title {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 4px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.lp-preview-page .page-subtitle {
+  font-size: 0.45rem;
+  color: var(--text-muted);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+.lp-preview-info { flex: 1; }
+.lp-preview-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.lp-preview-desc {
+  font-size: 0.8125rem;
+  color: var(--text-sec);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.lp-preview-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 5px 10px;
+  letter-spacing: 0.06em;
+}
+.lp-preview-badge svg { width: 12px; height: 12px; }
+
+/* ── Cards (What you get / Who it's for) ── */
+.lp-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+@media (min-width: 520px) {
+  .lp-cards { grid-template-columns: 1fr 1fr; }
+}
+.lp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 24px;
+}
+.lp-card-tag {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent);
-  text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
-.title {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: clamp(2rem, 5vw, 2.75rem);
-  font-weight: 400;
-  line-height: 1.1;
-  text-align: center;
-  margin-bottom: 1rem;
+.lp-card-list {
+  list-style: none;
 }
-.title em { font-style: italic; }
-.subtitle {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  text-align: center;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+.lp-card-list li {
+  font-size: 0.875rem;
+  color: var(--text-sec);
+  padding: 6px 0;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.45;
 }
-.categories {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-.cat {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
+.lp-card-list li::before {
+  position: absolute;
+  left: 0;
   color: var(--text-muted);
-  background: var(--bg-warm);
-  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
 }
-.form-wrap {
-  background: var(--bg-warm);
-  padding: 2rem;
-  margin-bottom: 2rem;
+.lp-card-what li::before { content: '→'; }
+.lp-card-who li::before { content: '○'; font-size: 0.625rem; top: 8px; }
+
+/* ── Credibility ── */
+.lp-credibility {
+  padding: 24px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
 }
-.form-title {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 0.375rem;
-}
-.form-sub {
+.lp-credibility-text {
   font-size: 0.8125rem;
   color: var(--text-muted);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* ── Final CTA ── */
+.lp-final {
+  padding: 40px 0 48px;
   text-align: center;
-  margin-bottom: 1.25rem;
 }
-.proof {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 0;
+.lp-final-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.15;
+  margin-bottom: 20px;
 }
-.proof-item {
-  display: flex;
-  gap: 0.75rem;
-  align-items: baseline;
+.lp-final-form {
+  max-width: 400px;
+  margin: 0 auto 12px;
 }
-.proof-icon {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--accent);
-  flex-shrink: 0;
+
+/* ── Sticky mobile CTA ── */
+.lp-sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  padding: 12px 20px;
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
 }
-.proof-text {
+.lp-sticky.visible { transform: translateY(0); }
+.lp-sticky-btn {
+  display: block;
+  width: 100%;
+  height: 44px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-body);
   font-size: 0.875rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-.footer {
-  margin-top: 2rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
   text-align: center;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.6875rem;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
+  line-height: 44px;
 }
-.footer a {
+.lp-sticky-sub {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+}
+
+/* ── Footer ── */
+.lp-footer {
+  padding: 20px 0 100px; /* extra bottom for sticky CTA */
+  text-align: center;
+}
+.lp-footer a {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
   color: var(--text-muted);
   text-decoration: none;
+  letter-spacing: 0.06em;
 }
-.footer a:hover { color: var(--text-secondary); }
+.lp-footer a:hover { color: var(--text-sec); }
+
+/* ── Responsive ── */
+@media (min-width: 768px) {
+  .lp-hero { padding: 72px 0 56px; }
+  .lp-sticky { display: none; }
+  .lp-footer { padding-bottom: 40px; }
+  .lp-preview-pages { width: 140px; height: 180px; }
+  .lp-preview-page { width: 110px; height: 150px; }
+}
 </style>
 </head>
 <body>
 
-<div class="page">
-
-  <div class="tag">Free diagnostic</div>
-
-  <h1 class="title">Score yourself across<br>5 categories. <em>See your gaps.</em></h1>
-
-  <p class="subtitle">A free 5-page PDF that scores you on the foundations that actually determine your dating results. Takes 3 minutes. Nothing to buy.</p>
-
-  <div class="categories">
-    <span class="cat">Fitness</span>
-    <span class="cat">Style</span>
-    <span class="cat">Confidence</span>
-    <span class="cat">Communication</span>
-    <span class="cat">Action</span>
+<!-- ── Header ── -->
+<header class="lp-header">
+<div class="container">
+  <div class="lp-header-inner">
+    <div class="lp-brand">
+      <span class="lp-brand-name">Dateable</span>
+      <span class="lp-brand-sub">by NextRoutine</span>
+    </div>
+    <div class="lp-trust-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Built by NextRoutine
+    </div>
   </div>
+</div>
+</header>
 
-  <div class="form-wrap">
-    <div class="form-title">Get the free diagnostic</div>
-    <div class="form-sub">PDF sent instantly — no spam, no course, no upsell wall.</div>
+<!-- ── Hero ── -->
+<section class="lp-hero">
+<div class="container">
+  <h1 class="lp-hero-title">Find out what is actually holding back your dating results.</h1>
+  <p class="lp-hero-desc">Most men try to fix dating with new photos, bios, or paid boosts. This free 3-minute diagnostic shows whether your real gap is Fitness, Style, Confidence, Communication, or Action.</p>
+
+  <!-- Email form -->
+  <div class="lp-form-wrap" id="form-top">
+    <span class="lp-form-label">Get the free diagnostic</span>
     <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="893d8c2c-46ea-4ead-b5d9-e0a78026db77"></script>
   </div>
 
-  <div class="proof">
-    <div class="proof-item">
-      <span class="proof-icon">→</span>
-      <span class="proof-text">Self-audit scorecard across 5 categories with /5 scoring</span>
+  <div class="lp-trust-line">
+    <span>PDF sent instantly</span>
+    <span>•</span>
+    <span>No spam</span>
+    <span>•</span>
+    <span>No course</span>
+    <span>•</span>
+    <span>No pickup nonsense</span>
+  </div>
+</div>
+</section>
+
+<!-- ── PDF Preview ── -->
+<section>
+<div class="container">
+  <div class="lp-preview">
+    <div class="lp-preview-pages">
+      <div class="lp-preview-page">
+        <span>Scorecard</span>
+      </div>
+      <div class="lp-preview-page">
+        <span>Actions</span>
+      </div>
+      <div class="lp-preview-page">
+        <div class="page-inner">
+          <div class="page-title">The Dateable Diagnostic</div>
+          <div class="page-subtitle">Discover what's really holding back your dating results.</div>
+        </div>
+      </div>
     </div>
-    <div class="proof-item">
-      <span class="proof-icon">→</span>
-      <span class="proof-text">The 5-pillar system map — see how everything connects</span>
-    </div>
-    <div class="proof-item">
-      <span class="proof-icon">→</span>
-      <span class="proof-text">One specific action per pillar — start today, not next week</span>
-    </div>
-    <div class="proof-item">
-      <span class="proof-icon">→</span>
-      <span class="proof-text">What to fix first based on your lowest scores</span>
+    <div class="lp-preview-info">
+      <div class="lp-preview-title">The Dateable Diagnostic</div>
+      <p class="lp-preview-desc">Score yourself across 5 foundations. See your weakest pillar. Get one action per category to start this week.</p>
+      <div class="lp-preview-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Free 5-page PDF
+      </div>
     </div>
   </div>
-
 </div>
+</section>
 
-<div class="footer">
+<!-- ── What you get / Who it's for ── -->
+<section>
+<div class="container">
+  <div class="lp-cards">
+    <div class="lp-card">
+      <div class="lp-card-tag">What you get</div>
+      <ul class="lp-card-list lp-card-what">
+        <li>Self-audit scorecard</li>
+        <li>5-pillar system map</li>
+        <li>One action per pillar</li>
+        <li>Your weakest foundation</li>
+        <li>What to fix first</li>
+      </ul>
+    </div>
+    <div class="lp-card">
+      <div class="lp-card-tag">Who it's for</div>
+      <ul class="lp-card-list lp-card-who">
+        <li>Getting fewer matches than expected</li>
+        <li>Unsure what your profile is signalling</li>
+        <li>Want practical self-improvement, not pickup advice</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── Credibility ── -->
+<section>
+<div class="container">
+  <div class="lp-credibility">
+    <p class="lp-credibility-text">"This isn't about tricks. It's about building the right foundations — fitness, style, confidence, communication, and action — so dating results follow naturally."</p>
+  </div>
+</div>
+</section>
+
+<!-- ── Final CTA ── -->
+<section class="lp-final">
+<div class="container">
+  <h2 class="lp-final-title">Stop guessing.<br>Find the weakest foundation first.</h2>
+  <div class="lp-final-form">
+    <div class="lp-form-wrap" style="margin-bottom: 12px;">
+      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="893d8c2c-46ea-4ead-b5d9-e0a78026db77"></script>
+    </div>
+  </div>
+  <div class="lp-trust-line" style="margin-bottom: 0;">
+    <span>PDF sent instantly</span>
+    <span>•</span>
+    <span>No spam</span>
+    <span>•</span>
+    <span>No pickup nonsense</span>
+  </div>
+</div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="lp-footer">
+<div class="container">
   <a href="https://dateable.nextroutine.com">dateable.nextroutine.com</a>
 </div>
+</footer>
+
+<!-- ── Sticky mobile CTA ── -->
+<div class="lp-sticky" id="stickyCta">
+  <a href="#form-top" class="lp-sticky-btn">Get the free diagnostic</a>
+  <div class="lp-sticky-sub">PDF sent instantly • No spam • No pickup nonsense</div>
+</div>
+
+<script>
+// Sticky CTA: show after scrolling past the hero form
+(function() {
+  var formTop = document.getElementById('form-top');
+  var sticky = document.getElementById('stickyCta');
+  if (!formTop || !sticky) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        sticky.classList.remove('visible');
+      } else {
+        sticky.classList.add('visible');
+      }
+    });
+  }, { threshold: 0 });
+
+  observer.observe(formTop);
+})();
+</script>
 
 </body>
 </html>
