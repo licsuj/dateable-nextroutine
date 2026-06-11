@@ -7,7 +7,7 @@
 <title>Free Dating Diagnostic for Men | Dateable by NextRoutine</title>
 <meta name="description" content="Find out what is holding back your dating results with a free 3-minute diagnostic across fitness, style, confidence, communication, and action.">
 <meta property="og:title" content="Free Dating Diagnostic for Men | Dateable by NextRoutine">
-<meta property="og:description" content="Score yourself across 5 foundations in 3 minutes. Free PDF diagnostic — no spam, no course, no pickup nonsense.">
+<meta property="og:description" content="Score yourself across 5 foundations in 3 minutes. Free PDF — no spam, no course, no pickup nonsense.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dateable.nextroutine.com/free">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,12 +35,14 @@ src="https://www.facebook.com/tr?id=1006173865231321&ev=PageView&noscript=1"
 :root {
   --bg: #0F0F0D;
   --bg-card: #1A1A18;
-  --bg-card-hover: #222220;
+  --bg-elevated: #222220;
   --text: #FAFAF8;
   --text-sec: #A0A09A;
   --text-muted: #6E6E68;
-  --accent: #6B5B45;
+  --accent: #8B7355;
   --border: #2A2A28;
+  --cta: #C4553A;
+  --cta-hover: #B34830;
   --font-display: 'Instrument Serif', Georgia, serif;
   --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'DM Mono', 'SF Mono', monospace;
@@ -56,17 +58,11 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
 }
-
-/* ── Container ── */
-.container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+.wrap { max-width: 520px; margin: 0 auto; padding: 0 20px; }
 
 /* ── Header ── */
 .lp-header {
-  padding: 16px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border);
 }
 .lp-header-inner {
@@ -74,338 +70,350 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.lp-brand {
-  display: flex;
-  flex-direction: column;
-}
 .lp-brand-name {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: var(--text);
-  line-height: 1.1;
+  line-height: 1;
 }
 .lp-brand-sub {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
-  color: var(--text-muted);
-  letter-spacing: 0.08em;
-}
-.lp-trust-badge {
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.5625rem;
   color: var(--text-muted);
   letter-spacing: 0.06em;
-  display: flex;
-  align-items: center;
-  gap: 4px;
 }
-.lp-trust-badge svg { width: 12px; height: 12px; }
+.lp-badge {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex; align-items: center; gap: 4px;
+}
+.lp-badge svg { width: 11px; height: 11px; }
 
 /* ── Hero ── */
-.lp-hero {
-  padding: 48px 0 40px;
-}
-.lp-hero-title {
+.lp-hero { padding: 40px 0 0; }
+.lp-h1 {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 6vw, 2.5rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
+  font-size: clamp(1.625rem, 5.5vw, 2.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
 }
-.lp-hero-desc {
+.lp-sub {
   font-size: 0.9375rem;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--text-sec);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 /* ── Form ── */
-.lp-form-wrap {
+.lp-form-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  padding: 24px;
-  margin-bottom: 16px;
-}
-.lp-form-wrap .beehiiv-embed {
-  width: 100%;
+  padding: 20px;
+  margin-bottom: 14px;
 }
 .lp-form-label {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   display: block;
 }
-
-/* ── Trust microcopy ── */
-.lp-trust-line {
+/* Trust line */
+.lp-micro {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 4px 16px;
+  gap: 3px 12px;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.5625rem;
   color: var(--text-muted);
-  letter-spacing: 0.04em;
-  margin-bottom: 48px;
+  letter-spacing: 0.03em;
+  padding: 0 0 36px;
 }
-.lp-trust-line span { white-space: nowrap; }
 
 /* ── PDF Preview ── */
-.lp-preview {
+.lp-pdf {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  padding: 32px 24px;
-  margin-bottom: 24px;
+  padding: 24px;
+  margin-bottom: 16px;
   display: flex;
-  gap: 24px;
+  gap: 20px;
   align-items: center;
 }
-.lp-preview-pages {
+.lp-pdf-stack {
   position: relative;
-  width: 120px;
-  height: 160px;
+  width: 100px;
+  height: 130px;
   flex-shrink: 0;
 }
-.lp-preview-page {
+.lp-pdf-pg {
   position: absolute;
-  width: 100px;
-  height: 140px;
-  background: #252523;
+  width: 80px;
+  height: 110px;
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 0.5rem;
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.lp-preview-page:nth-child(1) { top: 0; left: 0; transform: rotate(-3deg); }
-.lp-preview-page:nth-child(2) { top: 4px; left: 8px; transform: rotate(1deg); }
-.lp-preview-page:nth-child(3) {
-  top: 8px; left: 16px; transform: rotate(2deg);
-  background: #2A2A28;
-  border-color: var(--accent);
-}
-.lp-preview-page:nth-child(3) .page-inner {
   text-align: center;
-  padding: 12px;
+  padding: 8px;
 }
-.lp-preview-page .page-title {
+.lp-pdf-pg:nth-child(1) {
+  background: #1E1E1C;
+  top: 0; left: 0;
+  transform: rotate(-4deg);
+}
+.lp-pdf-pg:nth-child(2) {
+  background: #222220;
+  top: 4px; left: 8px;
+  transform: rotate(-1deg);
+}
+.lp-pdf-pg:nth-child(3) {
+  background: var(--bg-elevated);
+  border-color: var(--accent);
+  top: 8px; left: 16px;
+  transform: rotate(2deg);
+}
+.lp-pdf-pg span {
+  font-family: var(--font-mono);
+  font-size: 0.4375rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.lp-pdf-pg:nth-child(3) span {
+  color: var(--text-sec);
   font-family: var(--font-display);
-  font-size: 0.6875rem;
-  color: var(--text);
-  line-height: 1.2;
-  margin-bottom: 4px;
+  font-size: 0.625rem;
   text-transform: none;
   letter-spacing: 0;
 }
-.lp-preview-page .page-subtitle {
-  font-size: 0.45rem;
-  color: var(--text-muted);
-  text-transform: none;
-  letter-spacing: 0.02em;
-  line-height: 1.4;
-}
-.lp-preview-info { flex: 1; }
-.lp-preview-title {
+.lp-pdf-info {}
+.lp-pdf-title {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: 1.2;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
-.lp-preview-desc {
-  font-size: 0.8125rem;
+.lp-pdf-desc {
+  font-size: 0.75rem;
   color: var(--text-sec);
   line-height: 1.5;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
-.lp-preview-badge {
+.lp-pdf-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.5625rem;
   color: var(--text-muted);
   background: var(--bg);
   border: 1px solid var(--border);
-  padding: 5px 10px;
-  letter-spacing: 0.06em;
+  padding: 4px 8px;
+  letter-spacing: 0.04em;
 }
-.lp-preview-badge svg { width: 12px; height: 12px; }
+.lp-pdf-pill svg { width: 11px; height: 11px; }
 
-/* ── Cards (What you get / Who it's for) ── */
+/* ── Cards ── */
 .lp-cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
-@media (min-width: 520px) {
+@media (min-width: 480px) {
   .lp-cards { grid-template-columns: 1fr 1fr; }
 }
 .lp-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  padding: 24px;
+  padding: 20px;
 }
 .lp-card-tag {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.5625rem;
   font-weight: 500;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
-.lp-card-list {
-  list-style: none;
-}
-.lp-card-list li {
-  font-size: 0.875rem;
+.lp-card ul { list-style: none; }
+.lp-card li {
+  font-size: 0.8125rem;
   color: var(--text-sec);
-  padding: 6px 0;
-  padding-left: 24px;
+  padding: 5px 0 5px 20px;
   position: relative;
-  line-height: 1.45;
+  line-height: 1.4;
 }
-.lp-card-list li::before {
+.lp-card li::before {
   position: absolute;
   left: 0;
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
 }
-.lp-card-what li::before { content: '→'; }
-.lp-card-who li::before { content: '○'; font-size: 0.625rem; top: 8px; }
+.lp-what li::before { content: '→'; }
+.lp-who li::before { content: '○'; font-size: 0.5rem; top: 7px; }
 
 /* ── Credibility ── */
-.lp-credibility {
-  padding: 24px;
+.lp-cred {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  margin-bottom: 40px;
+  padding: 20px 0;
+  margin-bottom: 32px;
 }
-.lp-credibility-text {
+.lp-cred p {
   font-size: 0.8125rem;
   color: var(--text-muted);
   line-height: 1.65;
   font-style: italic;
+  max-width: 460px;
+}
+.lp-cred-sign {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+  font-style: normal;
+  letter-spacing: 0.04em;
 }
 
 /* ── Final CTA ── */
 .lp-final {
-  padding: 40px 0 48px;
+  padding: 8px 0 40px;
   text-align: center;
 }
-.lp-final-title {
+.lp-final-h2 {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   line-height: 1.15;
   margin-bottom: 20px;
 }
-.lp-final-form {
-  max-width: 400px;
-  margin: 0 auto 12px;
+.lp-final-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 52px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  margin-bottom: 12px;
 }
+.lp-final-btn:hover { background: #E0E0DC; transform: translateY(-1px); }
+.lp-final-btn svg { width: 16px; height: 16px; }
 
 /* ── Sticky mobile CTA ── */
 .lp-sticky {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   background: var(--bg-card);
   border-top: 1px solid var(--border);
-  padding: 12px 20px;
+  padding: 10px 16px;
   z-index: 100;
   transform: translateY(100%);
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.lp-sticky.visible { transform: translateY(0); }
+.lp-sticky.show { transform: translateY(0); }
 .lp-sticky-btn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   width: 100%;
+  max-width: 400px;
   height: 44px;
   background: var(--text);
   color: var(--bg);
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   border: none;
   cursor: pointer;
   text-decoration: none;
   text-align: center;
-  line-height: 44px;
 }
-.lp-sticky-sub {
+.lp-sticky-btn svg { width: 14px; height: 14px; }
+.lp-sticky-micro {
   font-family: var(--font-mono);
-  font-size: 0.5625rem;
+  font-size: 0.5rem;
   color: var(--text-muted);
-  text-align: center;
-  margin-top: 6px;
-  letter-spacing: 0.04em;
+  margin-top: 5px;
+  letter-spacing: 0.03em;
 }
 
 /* ── Footer ── */
 .lp-footer {
-  padding: 20px 0 100px; /* extra bottom for sticky CTA */
+  padding: 16px 0;
+  padding-bottom: 90px; /* room for sticky */
   text-align: center;
 }
 .lp-footer a {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.5625rem;
   color: var(--text-muted);
   text-decoration: none;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 }
-.lp-footer a:hover { color: var(--text-sec); }
 
-/* ── Responsive ── */
+/* ── Desktop ── */
 @media (min-width: 768px) {
-  .lp-hero { padding: 72px 0 56px; }
+  .lp-hero { padding: 64px 0 0; }
   .lp-sticky { display: none; }
-  .lp-footer { padding-bottom: 40px; }
-  .lp-preview-pages { width: 140px; height: 180px; }
-  .lp-preview-page { width: 110px; height: 150px; }
+  .lp-footer { padding-bottom: 32px; }
+  .lp-pdf-stack { width: 120px; height: 150px; }
+  .lp-pdf-pg { width: 90px; height: 120px; }
 }
 </style>
 </head>
 <body>
 
-<!-- ── Header ── -->
+<!-- Header -->
 <header class="lp-header">
-<div class="container">
+<div class="wrap">
   <div class="lp-header-inner">
-    <div class="lp-brand">
-      <span class="lp-brand-name">Dateable</span>
-      <span class="lp-brand-sub">by NextRoutine</span>
+    <div>
+      <div class="lp-brand-name">Dateable</div>
+      <div class="lp-brand-sub">by NextRoutine</div>
     </div>
-    <div class="lp-trust-badge">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div class="lp-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       Built by NextRoutine
     </div>
   </div>
 </div>
 </header>
 
-<!-- ── Hero ── -->
+<!-- Hero + Form -->
 <section class="lp-hero">
-<div class="container">
-  <h1 class="lp-hero-title">Find out what is actually holding back your dating results.</h1>
-  <p class="lp-hero-desc">Most men try to fix dating with new photos, bios, or paid boosts. This free 3-minute diagnostic shows whether your real gap is Fitness, Style, Confidence, Communication, or Action.</p>
+<div class="wrap">
+  <h1 class="lp-h1">Find out what is actually holding back your dating results.</h1>
+  <p class="lp-sub">Most men try to fix dating with new photos, bios, or paid boosts. This free 3-minute diagnostic shows whether your real gap is Fitness, Style, Confidence, Communication, or Action.</p>
 
-  <!-- Email form -->
-  <div class="lp-form-wrap" id="form-top">
+  <div class="lp-form-card" id="signup-form">
     <span class="lp-form-label">Get the free diagnostic</span>
     <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="893d8c2c-46ea-4ead-b5d9-e0a78026db77"></script>
   </div>
 
-  <div class="lp-trust-line">
+  <div class="lp-micro">
     <span>PDF sent instantly</span>
     <span>•</span>
     <span>No spam</span>
@@ -417,29 +425,20 @@ body {
 </div>
 </section>
 
-<!-- ── PDF Preview ── -->
+<!-- PDF Preview -->
 <section>
-<div class="container">
-  <div class="lp-preview">
-    <div class="lp-preview-pages">
-      <div class="lp-preview-page">
-        <span>Scorecard</span>
-      </div>
-      <div class="lp-preview-page">
-        <span>Actions</span>
-      </div>
-      <div class="lp-preview-page">
-        <div class="page-inner">
-          <div class="page-title">The Dateable Diagnostic</div>
-          <div class="page-subtitle">Discover what's really holding back your dating results.</div>
-        </div>
-      </div>
+<div class="wrap">
+  <div class="lp-pdf">
+    <div class="lp-pdf-stack">
+      <div class="lp-pdf-pg"><span>Scorecard</span></div>
+      <div class="lp-pdf-pg"><span>5-Pillar<br>System Map</span></div>
+      <div class="lp-pdf-pg"><span>The Dateable<br>Diagnostic</span></div>
     </div>
-    <div class="lp-preview-info">
-      <div class="lp-preview-title">The Dateable Diagnostic</div>
-      <p class="lp-preview-desc">Score yourself across 5 foundations. See your weakest pillar. Get one action per category to start this week.</p>
-      <div class="lp-preview-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    <div class="lp-pdf-info">
+      <div class="lp-pdf-title">The Dateable Diagnostic</div>
+      <p class="lp-pdf-desc">Discover what's really holding back your dating results. Score yourself, see your gaps, get your first action plan.</p>
+      <div class="lp-pdf-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         Free 5-page PDF
       </div>
     </div>
@@ -447,13 +446,13 @@ body {
 </div>
 </section>
 
-<!-- ── What you get / Who it's for ── -->
+<!-- What you get / Who it's for -->
 <section>
-<div class="container">
+<div class="wrap">
   <div class="lp-cards">
     <div class="lp-card">
       <div class="lp-card-tag">What you get</div>
-      <ul class="lp-card-list lp-card-what">
+      <ul class="lp-what">
         <li>Self-audit scorecard</li>
         <li>5-pillar system map</li>
         <li>One action per pillar</li>
@@ -463,7 +462,7 @@ body {
     </div>
     <div class="lp-card">
       <div class="lp-card-tag">Who it's for</div>
-      <ul class="lp-card-list lp-card-who">
+      <ul class="lp-who">
         <li>Getting fewer matches than expected</li>
         <li>Unsure what your profile is signalling</li>
         <li>Want practical self-improvement, not pickup advice</li>
@@ -473,25 +472,25 @@ body {
 </div>
 </section>
 
-<!-- ── Credibility ── -->
+<!-- Credibility -->
 <section>
-<div class="container">
-  <div class="lp-credibility">
-    <p class="lp-credibility-text">"This isn't about tricks. It's about building the right foundations — fitness, style, confidence, communication, and action — so dating results follow naturally."</p>
+<div class="wrap">
+  <div class="lp-cred">
+    <p>"This isn't about tricks. It's about building the right foundations — fitness, style, confidence, communication, and action — so dating results follow naturally."</p>
+    <div class="lp-cred-sign">— NextRoutine</div>
   </div>
 </div>
 </section>
 
-<!-- ── Final CTA ── -->
+<!-- Final CTA -->
 <section class="lp-final">
-<div class="container">
-  <h2 class="lp-final-title">Stop guessing.<br>Find the weakest foundation first.</h2>
-  <div class="lp-final-form">
-    <div class="lp-form-wrap" style="margin-bottom: 12px;">
-      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="893d8c2c-46ea-4ead-b5d9-e0a78026db77"></script>
-    </div>
-  </div>
-  <div class="lp-trust-line" style="margin-bottom: 0;">
+<div class="wrap">
+  <h2 class="lp-final-h2">Stop guessing.<br>Find the weakest foundation first.</h2>
+  <a href="#signup-form" class="lp-final-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+    Get the free diagnostic
+  </a>
+  <div class="lp-micro" style="padding-bottom: 0;">
     <span>PDF sent instantly</span>
     <span>•</span>
     <span>No spam</span>
@@ -501,37 +500,32 @@ body {
 </div>
 </section>
 
-<!-- ── Footer ── -->
+<!-- Footer -->
 <footer class="lp-footer">
-<div class="container">
+<div class="wrap">
   <a href="https://dateable.nextroutine.com">dateable.nextroutine.com</a>
 </div>
 </footer>
 
-<!-- ── Sticky mobile CTA ── -->
+<!-- Sticky mobile CTA -->
 <div class="lp-sticky" id="stickyCta">
-  <a href="#form-top" class="lp-sticky-btn">Get the free diagnostic</a>
-  <div class="lp-sticky-sub">PDF sent instantly • No spam • No pickup nonsense</div>
+  <a href="#signup-form" class="lp-sticky-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+    Get the free diagnostic
+  </a>
+  <div class="lp-sticky-micro">PDF sent instantly • No spam • No pickup nonsense</div>
 </div>
 
 <script>
-// Sticky CTA: show after scrolling past the hero form
+// Show sticky CTA when form scrolls out of view
 (function() {
-  var formTop = document.getElementById('form-top');
+  var form = document.getElementById('signup-form');
   var sticky = document.getElementById('stickyCta');
-  if (!formTop || !sticky) return;
-
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        sticky.classList.remove('visible');
-      } else {
-        sticky.classList.add('visible');
-      }
-    });
+  if (!form || !sticky) return;
+  var io = new IntersectionObserver(function(entries) {
+    sticky.classList.toggle('show', !entries[0].isIntersecting);
   }, { threshold: 0 });
-
-  observer.observe(formTop);
+  io.observe(form);
 })();
 </script>
 
