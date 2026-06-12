@@ -69,11 +69,10 @@ body {
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Intro */
-.intro { padding: 48px 0 40px; text-align: center; }
-.intro h1 { font-family: var(--fd); font-size: clamp(1.625rem, 5.5vw, 2.25rem); line-height: 1.12; letter-spacing: -.015em; margin-bottom: 14px; }
-.intro p { font-size: .9375rem; color: var(--tsec); line-height: 1.6; margin-bottom: 28px; max-width: 440px; margin-left: auto; margin-right: auto; }
-.intro-pills { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-bottom: 32px; }
-.intro-pill { font-family: var(--fm); font-size: .625rem; letter-spacing: .06em; color: var(--tmut); background: var(--card); border: 1px solid var(--border); padding: 4px 10px; }
+.intro { padding: 36px 0 32px; text-align: center; }
+.lp-h1 { font-family: var(--fd); font-size: clamp(1.625rem, 5.5vw, 2.25rem); line-height: 1.12; letter-spacing: -.015em; }
+.intro .lp-h1 { margin-bottom: 20px; }
+.intro-sub { font-size: .8125rem; color: var(--tmut); line-height: 1.5; margin-top: 20px; max-width: 360px; margin-left: auto; margin-right: auto; }
 .btn-go { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 360px; height: 52px; margin: 0 auto 16px; background: var(--cta); color: var(--cta-text); font-family: var(--fb); font-size: .9375rem; font-weight: 600; border: none; cursor: pointer; transition: transform .2s; }
 .btn-go:hover { transform: translateY(-1px); }
 .btn-go svg { width: 16px; height: 16px; }
@@ -127,13 +126,20 @@ body {
 .r-micro { font-family: var(--fm); font-size: .5625rem; color: var(--tmut); letter-spacing: .03em; }
 
 /* Footer */
-.ft { padding: 20px 0 32px; text-align: center; }
+.ft { padding: 20px 0 80px; text-align: center; }
 .ft a { font-family: var(--fm); font-size: .5625rem; color: var(--tmut); text-decoration: none; letter-spacing: .05em; }
 
+/* Sticky CTA */
+.sticky { position: fixed; bottom: 0; left: 0; right: 0; background: var(--card); border-top: 1px solid var(--border); padding: 10px 16px; z-index: 100; display: none; }
+.sticky.show { display: block; }
+.sticky-btn { display: block; width: 100%; max-width: 520px; margin: 0 auto; height: 46px; background: var(--cta); color: var(--cta-text); font-family: var(--fb); font-size: .875rem; font-weight: 600; border: none; cursor: pointer; }
+
 @media (min-width: 768px) {
-  .intro { padding: 64px 0 48px; }
+  .intro { padding: 56px 0 40px; }
   .quiz { padding: 48px 0; }
   .results { padding: 56px 0; }
+  .sticky { display: none !important; }
+  .ft { padding-bottom: 32px; }
 }
 </style>
 </head>
@@ -158,20 +164,13 @@ body {
 <div class="screen active" id="s-intro">
 <section class="intro">
 <div class="w">
-  <h1>Find out what is actually holding back your dating results.</h1>
-  <p>Most men try to fix dating with new photos, bios, or paid boosts. This free 3-minute quiz shows whether your real gap is Fitness, Style, Confidence, Communication, or Action.</p>
-  <div class="intro-pills">
-    <span class="intro-pill">Fitness</span>
-    <span class="intro-pill">Style</span>
-    <span class="intro-pill">Confidence</span>
-    <span class="intro-pill">Communication</span>
-    <span class="intro-pill">Action</span>
-  </div>
+  <h1 class="lp-h1">What is actually holding back your dating results?</h1>
   <button class="btn-go" onclick="startQuiz()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
     Take the 3-minute quiz
   </button>
   <div class="intro-micro">10 questions &bull; No signup to start &bull; Free</div>
+  <p class="intro-sub">Find out if your real gap is Fitness, Style, Confidence, Communication, or Action.</p>
 </div>
 </section>
 </div>
@@ -228,6 +227,13 @@ body {
 </div>
 
 <footer class="ft"><div class="w"><a href="https://dateable.nextroutine.com">dateable.nextroutine.com</a></div></footer>
+
+<!-- Sticky mobile CTA -->
+<div class="sticky" id="stickyBar">
+  <button class="sticky-btn" onclick="document.getElementById('s-intro').classList.contains('active') ? startQuiz() : document.getElementById('s-intro').scrollIntoView({behavior:'smooth'})">
+    Take the 3-minute quiz
+  </button>
+</div>
 
 <script>
 var QUESTIONS = [
@@ -417,8 +423,23 @@ function showResults() {
 
 function startQuiz() {
   if (typeof fbq === "function") fbq("track", "QuizStart");
+  document.getElementById("stickyBar").classList.remove("show");
   show("s-quiz");
   renderQ();
+}
+
+// Show sticky when intro button scrolls out of view
+if (window.innerWidth < 768) {
+  var btnGo = document.querySelector(".btn-go");
+  if (btnGo) {
+    var stickyObs = new IntersectionObserver(function(entries) {
+      var intro = document.getElementById("s-intro");
+      if (intro && intro.classList.contains("active")) {
+        document.getElementById("stickyBar").classList.toggle("show", !entries[0].isIntersecting);
+      }
+    }, {threshold: 0});
+    stickyObs.observe(btnGo);
+  }
 }
 </script>
 
