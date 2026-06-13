@@ -201,9 +201,11 @@ src="https://www.facebook.com/tr?id=1006173865231321&ev=PageView&noscript=1"
   <!-- Quiz result (populated by JS if available) -->
   <div id="quizSummary" style="display:none;">
     <div class="divider"></div>
-    <div class="upsell-tag">Your quiz result</div>
+    <div class="upsell-tag">Your full result</div>
     <h2 class="upsell-title" id="tyArchetype"></h2>
-    <p class="upsell-desc" id="tyDetail"></p>
+    <p class="upsell-desc" id="tyDetail" style="margin-bottom:1rem;"></p>
+    <div id="tyPillars" style="text-align:left;margin-bottom:1rem;"></div>
+    <p class="upsell-desc" id="tyInsight" style="font-style:italic;margin-bottom:0;"></p>
   </div>
 
   <!-- Upsell divider -->
@@ -211,16 +213,26 @@ src="https://www.facebook.com/tr?id=1006173865231321&ev=PageView&noscript=1"
 
   <!-- Pack upsell (personalized by JS if quiz data exists) -->
   <div class="upsell-tag" id="tyUpsellTag">Ready for the full program?</div>
-  <h2 class="upsell-title" id="tyUpsellTitle">The Starter Pack — €29</h2>
+  <h2 class="upsell-title" id="tyUpsellTitle">The Starter Pack — &euro;29</h2>
   <p class="upsell-desc" id="tyUpsellDesc">Complete 8-week program with day-by-day checklists, photo strategy, bio templates, first-date system, fitness kickstart, and confidence tracker. One payment, keep forever.</p>
 
-  <a href="https://buy.stripe.com/6oUaEX1vW31RaAadHb3cc00" class="upsell-btn" id="tyUpsellBtn">Get the Starter Pack →</a>
+  <a href="https://buy.stripe.com/6oUaEX1vW31RaAadHb3cc00" class="upsell-btn" id="tyUpsellBtn">Get the Starter Pack &rarr;</a>
 
 </div>
 
 <div class="footer">
   <a href="https://dateable.nextroutine.com">dateable.nextroutine.com</a>
 </div>
+
+<style>
+.ty-bar-row { display:flex; align-items:center; gap:8px; padding:5px 0; }
+.ty-bar-name { font-family:'DM Mono',monospace; font-size:.6875rem; width:100px; color:#555550; flex-shrink:0; }
+.ty-bar-track { flex:1; height:5px; background:#DDDBD5; }
+.ty-bar-fill { height:100%; transition:width .8s ease; }
+.ty-bar-pct { font-family:'DM Mono',monospace; font-size:.6875rem; color:#8E8E86; width:32px; text-align:right; }
+.ty-bar-row.weak .ty-bar-name { color:#1A1A18; font-weight:500; }
+.ty-bar-row.weak .ty-bar-pct { color:#6B5B45; }
+</style>
 
 <script>
 (function() {
@@ -229,23 +241,42 @@ src="https://www.facebook.com/tr?id=1006173865231321&ev=PageView&noscript=1"
     if (!data) return;
 
     // Show quiz summary
-    var summary = document.getElementById("quizSummary");
-    summary.style.display = "block";
-    document.getElementById("tyArchetype").textContent = data.archetype + " — " + data.score + "/100";
-    document.getElementById("tyDetail").textContent = "Weakest foundation: " + data.weakest + " (" + data.weakestPct + "%)";
+    document.getElementById("quizSummary").style.display = "block";
+    document.getElementById("tyArchetype").textContent = data.archetype + " \u2014 " + data.score + "/100";
+    document.getElementById("tyDetail").textContent = data.archetypeDesc || ("Weakest foundation: " + data.weakest);
+
+    // Render pillar bars
+    if (data.pillars && data.pillars.length) {
+      var barsHtml = "";
+      for (var i = 0; i < data.pillars.length; i++) {
+        var p = data.pillars[i];
+        var isWeak = p.name === data.weakest;
+        barsHtml += '<div class="ty-bar-row' + (isWeak ? ' weak' : '') + '">';
+        barsHtml += '<div class="ty-bar-name">' + p.name + '</div>';
+        barsHtml += '<div class="ty-bar-track"><div class="ty-bar-fill" style="width:' + p.pct + '%;background:' + p.color + '"></div></div>';
+        barsHtml += '<div class="ty-bar-pct">' + p.pct + '%</div>';
+        barsHtml += '</div>';
+      }
+      document.getElementById("tyPillars").innerHTML = barsHtml;
+    }
+
+    // Insight
+    if (data.insightText) {
+      document.getElementById("tyInsight").textContent = data.insightText;
+    }
 
     // Personalize upsell
     document.getElementById("tyUpsellTag").textContent = "Recommended for your result";
     document.getElementById("tyUpsellTitle").textContent = data.recName === "The Complete Dating Reset"
-      ? "The Complete Dating Reset — €59"
-      : "The Starter Pack — €29";
+      ? "The Complete Dating Reset \u2014 \u20AC59"
+      : "The Starter Pack \u2014 \u20AC29";
     document.getElementById("tyUpsellDesc").textContent = data.recWhy;
     
     if (data.recName === "The Complete Dating Reset") {
       document.getElementById("tyUpsellBtn").href = "https://buy.stripe.com/bJe14nfmM9qf23E1Yt3cc01";
-      document.getElementById("tyUpsellBtn").textContent = "Start the 8-week reset →";
+      document.getElementById("tyUpsellBtn").textContent = "Start the 8-week reset \u2192";
     } else {
-      document.getElementById("tyUpsellBtn").textContent = "Fix my profile →";
+      document.getElementById("tyUpsellBtn").textContent = "Fix my profile \u2192";
     }
 
     localStorage.removeItem("quizResult");

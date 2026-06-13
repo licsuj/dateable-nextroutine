@@ -131,6 +131,13 @@ body {
 
 .r-cta { text-align: center; }
 .r-ctag { font-family: var(--fm); font-size: .625rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.r-ctitle { font-family: var(--fd); font-size: 1.25rem; margin-bottom: 12px; }
+.r-cdesc-list { text-align: left; max-width: 360px; margin: 0 auto 20px; }
+.r-cdesc-item { font-size: .8125rem; color: var(--tsec); padding: 4px 0; }
+
+.r-gap { text-align: center; padding: 16px 0; margin-bottom: 24px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.r-gap-label { font-family: var(--fm); font-size: .5625rem; letter-spacing: .12em; text-transform: uppercase; color: var(--tmut); margin-bottom: 6px; }
+.r-gap-name { font-family: var(--fd); font-size: 1.25rem; color: var(--accent); }
 .r-ctitle { font-family: var(--fd); font-size: 1.25rem; margin-bottom: 4px; }
 .r-cdesc { font-size: .8125rem; color: var(--tsec); margin-bottom: 16px; }
 .r-fcard { background: var(--card); border: 1px solid var(--border); padding: 20px; margin-bottom: 12px; text-align: left; }
@@ -226,27 +233,25 @@ body {
     <div class="r-arch-desc" id="rArchDesc"></div>
   </div>
 
-  <div class="r-pillars" id="rPillars"></div>
-  <div class="r-insight">
-    <div class="r-itag">Your biggest gap</div>
-    <div class="r-ititle" id="rITitle"></div>
-    <div class="r-itext" id="rIText"></div>
+  <div class="r-gap">
+    <div class="r-gap-label">Weakest foundation</div>
+    <div class="r-gap-name" id="rGapName"></div>
   </div>
-  <div class="r-rec" id="rRec">
-    <div class="r-rec-tag">Recommended next step</div>
-    <div class="r-rec-name" id="rRecName"></div>
-    <div class="r-rec-why" id="rRecWhy"></div>
-    <a href="https://dateable.nextroutine.com/#packs" class="r-rec-link">See the full system &rarr;</a>
-  </div>
+
   <div class="r-cta">
-    <div class="r-ctag">Your action plan is ready</div>
+    <div class="r-ctag">Your 7-day action plan is ready</div>
     <div class="r-ctitle">Get your personalised action plan</div>
-    <div class="r-cdesc">A 5-page PDF with your scorecard, the 5-pillar system map, and one action per pillar &mdash; starting with your weakest foundation.</div>
+    <div class="r-cdesc-list">
+      <div class="r-cdesc-item">&rarr; Full score breakdown across all 5 foundations</div>
+      <div class="r-cdesc-item">&rarr; Your first 3 actions for <span id="rGapInline">your weakest pillar</span></div>
+      <div class="r-cdesc-item">&rarr; Your recommended reset path</div>
+      <div class="r-cdesc-item">&rarr; 5-page PDF action plan</div>
+    </div>
     <div class="r-fcard">
-      <span class="r-flabel">Enter your email to get the PDF</span>
+      <span class="r-flabel">Get my action plan</span>
       <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="893d8c2c-46ea-4ead-b5d9-e0a78026db77"></script>
     </div>
-    <div class="r-micro">PDF sent instantly &bull; No spam &bull; No pickup nonsense</div>
+    <div class="r-micro">Sent instantly &bull; No spam &bull; Unsubscribe anytime</div>
   </div>
 </div>
 </section>
@@ -401,7 +406,16 @@ function showResults() {
 
   document.getElementById("rBig").textContent = totalPct + "/100";
   document.getElementById("rBand").textContent = band;
-  document.getElementById("rPillars").innerHTML = html;
+
+  // Build pillar data for localStorage (shown on /thank-you, not here)
+  var pillarData = [];
+  for (var p = 0; p < order.length; p++) {
+    var pn = order[p];
+    var ps = scores[pn] || 0;
+    var pm = maxes[pn] || 8;
+    var pp = Math.round(ps / pm * 100);
+    pillarData.push({name: pn, pct: pp, color: COLORS[pn]});
+  }
 
   // Determine archetype
   var weakCount = 0;
@@ -423,6 +437,11 @@ function showResults() {
   document.getElementById("rArchName").textContent = arch.name;
   document.getElementById("rArchDesc").textContent = arch.desc;
 
+  // Populate gap name
+  document.getElementById("rGapName").textContent = weakest;
+  var gapInline = document.getElementById("rGapInline");
+  if (gapInline) gapInline.textContent = weakest;
+
   // Recommendation logic
   var rec = {};
   if (weakest === "Style & Grooming" || weakest === "Fitness & Health") {
@@ -440,44 +459,26 @@ function showResults() {
     rec.name = "The Dating Reset Starter Pack";
     rec.why = "Your foundations are strong. The Starter Pack will help you fine-tune the visible layer \u2014 photos, bio, style \u2014 to match the solid base you already have.";
   }
-  document.getElementById("rRecName").textContent = rec.name;
-  document.getElementById("rRecWhy").textContent = rec.why;
 
-  // Save to localStorage for personalized /thank-you
+  // Save full data to localStorage for personalized /thank-you
+  var ins = INSIGHTS[weakest];
   try {
     localStorage.setItem("quizResult", JSON.stringify({
       score: totalPct,
       band: band,
       archetype: arch.name,
+      archetypeDesc: arch.desc,
       weakest: weakest,
       weakestPct: weakestPct,
       recName: rec.name,
-      recWhy: rec.why
+      recWhy: rec.why,
+      insightTitle: ins.title,
+      insightText: ins.text,
+      pillars: pillarData
     }));
   } catch(e) {}
 
-  // Mark weakest
-  var rows = document.querySelectorAll(".r-row");
-  for (var k = 0; k < rows.length; k++) {
-    var rName = rows[k].querySelector(".r-name").textContent;
-    if (rName === weakest) rows[k].classList.add("weak");
-  }
-
-  // Insight
-  var ins = INSIGHTS[weakest];
-  document.getElementById("rITitle").textContent = ins.title;
-  document.getElementById("rIText").textContent = ins.text;
-
   show("s-results");
-
-  // Animate bars
-  setTimeout(function() {
-    var fills = document.querySelectorAll(".r-trackfill");
-    for (var f = 0; f < fills.length; f++) {
-      var row = fills[f].closest(".r-row");
-      fills[f].style.width = row.getAttribute("data-pct") + "%";
-    }
-  }, 150);
 }
 
 function startQuiz() {
