@@ -185,30 +185,13 @@ src="https://www.facebook.com/tr?id=1006173865231321&ev=PageView&noscript=1"
   </div>
 
   <!-- Main message -->
-  <h1 class="title">Your action plan is ready.</h1>
-  <p class="subtitle">Your personalised Dating Foundation report — score yourself, see your gaps, and get one action per pillar to start this week.</p>
+  <h1 class="title">Your action plan is on the way.</h1>
+  <p class="subtitle">We just sent your Dating Foundation action plan to your inbox. It includes your 5-page PDF, scorecard, and first actions.</p>
 
-  <!-- Download button -->
-  <a href="#" onclick="downloadPDF(event)" class="download-btn">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-      <polyline points="7 10 12 15 17 10"></polyline>
-      <line x1="12" y1="15" x2="12" y2="3"></line>
-    </svg>
-    Download your action plan
-  </a>
-  <script>
-  function downloadPDF(e) {
-    e.preventDefault();
-    var a = document.createElement('a');
-    a.href = '/dating-reset-free.pdf';
-    a.download = 'Dating-Foundation-Action-Plan.pdf';
-    a.target = '_blank';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
-  </script>
+  <div style="background:#F3F1EC;border:1px solid #DDDBD5;padding:24px;text-align:center;margin-bottom:0;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.625rem;letter-spacing:0.12em;text-transform:uppercase;color:#6B5B45;margin-bottom:10px;">CHECK YOUR INBOX</div>
+    <p style="font-size:0.875rem;color:#555550;line-height:1.6;margin:0;">Look for an email from <strong>Dateable Next Routine</strong>. If you don't see it within a few minutes, check your spam or promotions folder.</p>
+  </div>
 
   <!-- Quiz result (populated by JS if available) -->
   <div id="quizSummary" style="display:none;">
