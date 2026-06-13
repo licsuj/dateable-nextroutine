@@ -73,6 +73,11 @@ body {
 .lp-h1 { font-family: var(--fd); font-size: clamp(1.625rem, 5.5vw, 2.25rem); line-height: 1.12; letter-spacing: -.015em; }
 .intro .lp-h1 { margin-bottom: 20px; }
 .intro-sub { font-size: .8125rem; color: var(--tmut); line-height: 1.5; margin-top: 20px; max-width: 360px; margin-left: auto; margin-right: auto; }
+.intro-sub-top { font-size: .875rem; color: var(--tsec); line-height: 1.5; margin-bottom: 24px; }
+.intro-trust { font-size: .75rem; color: var(--tmut); margin-top: 16px; font-style: italic; }
+.intro-value { margin-top: 28px; text-align: left; max-width: 300px; margin-left: auto; margin-right: auto; }
+.intro-value-tag { font-family: var(--fm); font-size: .625rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.intro-value-item { font-size: .8125rem; color: var(--tsec); padding: 3px 0; }
 .btn-go { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 360px; height: 52px; margin: 0 auto 16px; background: var(--cta); color: var(--cta-text); font-family: var(--fb); font-size: .9375rem; font-weight: 600; border: none; cursor: pointer; transition: transform .2s; }
 .btn-go:hover { transform: translateY(-1px); }
 .btn-go svg { width: 16px; height: 16px; }
@@ -164,13 +169,21 @@ body {
 <div class="screen active" id="s-intro">
 <section class="intro">
 <div class="w">
-  <h1 class="lp-h1">What is actually holding back your dating results?</h1>
+  <h1 class="lp-h1">Find your weakest dating foundation in 3 minutes.</h1>
+  <p class="intro-sub-top">10 questions across Fitness, Style, Confidence, Communication, and Action.</p>
   <button class="btn-go" onclick="startQuiz()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-    Take the 3-minute quiz
+    Find my weakest foundation
   </button>
-  <div class="intro-micro">10 questions &bull; No signup to start &bull; Free</div>
-  <p class="intro-sub">Find out if your real gap is Fitness, Style, Confidence, Communication, or Action.</p>
+  <div class="intro-micro">Free &bull; No signup to start &bull; Takes 3 minutes</div>
+  <div class="intro-trust">No pickup tricks. No fake confidence. Just a practical dating foundation check.</div>
+  <div class="intro-value">
+    <div class="intro-value-tag">You'll get:</div>
+    <div class="intro-value-item">&rarr; Your weakest foundation</div>
+    <div class="intro-value-item">&rarr; Your dating foundation score</div>
+    <div class="intro-value-item">&rarr; One first action</div>
+    <div class="intro-value-item">&rarr; Your recommended reset path</div>
+  </div>
 </div>
 </section>
 </div>
@@ -231,7 +244,7 @@ body {
 <!-- Sticky mobile CTA -->
 <div class="sticky" id="stickyBar">
   <button class="sticky-btn" onclick="document.getElementById('s-intro').classList.contains('active') ? startQuiz() : document.getElementById('s-intro').scrollIntoView({behavior:'smooth'})">
-    Take the 3-minute quiz
+    Find my weakest foundation
   </button>
 </div>
 
