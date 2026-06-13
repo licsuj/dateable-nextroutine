@@ -117,8 +117,15 @@ body {
 .r-row.weak .r-name { color: var(--text); font-weight: 500; }
 .r-row.weak .r-pct { color: var(--accent); }
 
-.r-insight { background: var(--card); border: 1px solid var(--border); padding: 20px; margin-bottom: 28px; }
+.r-insight { background: var(--card); border: 1px solid var(--border); padding: 20px; margin-bottom: 16px; }
 .r-itag { font-family: var(--fm); font-size: .5625rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+
+.r-rec { background: var(--card); border: 1px solid var(--accent); padding: 20px; margin-bottom: 28px; }
+.r-rec-tag { font-family: var(--fm); font-size: .5625rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.r-rec-name { font-family: var(--fd); font-size: 1.25rem; margin-bottom: 6px; }
+.r-rec-why { font-size: .8125rem; color: var(--tsec); line-height: 1.6; margin-bottom: 12px; }
+.r-rec-link { font-family: var(--fm); font-size: .75rem; color: var(--accent); text-decoration: none; letter-spacing: .04em; }
+.r-rec-link:hover { color: var(--text); }
 .r-ititle { font-family: var(--fd); font-size: 1.125rem; margin-bottom: 6px; }
 .r-itext { font-size: .8125rem; color: var(--tsec); line-height: 1.6; }
 
@@ -224,6 +231,12 @@ body {
     <div class="r-itag">Your biggest gap</div>
     <div class="r-ititle" id="rITitle"></div>
     <div class="r-itext" id="rIText"></div>
+  </div>
+  <div class="r-rec" id="rRec">
+    <div class="r-rec-tag">Recommended next step</div>
+    <div class="r-rec-name" id="rRecName"></div>
+    <div class="r-rec-why" id="rRecWhy"></div>
+    <a href="https://dateable.nextroutine.com/#packs" class="r-rec-link">See the full system &rarr;</a>
   </div>
   <div class="r-cta">
     <div class="r-ctag">Your action plan is ready</div>
@@ -409,6 +422,39 @@ function showResults() {
 
   document.getElementById("rArchName").textContent = arch.name;
   document.getElementById("rArchDesc").textContent = arch.desc;
+
+  // Recommendation logic
+  var rec = {};
+  if (weakest === "Style & Grooming" || weakest === "Fitness & Health") {
+    rec.name = "The Dating Reset Starter Pack";
+    rec.why = "Your weakest area is the visible layer \u2014 the stuff that shapes first impressions before you say a word. The Starter Pack focuses on photos, profile, style, fitness, and first-date basics.";
+  } else {
+    rec.name = "The Complete Dating Reset";
+    rec.why = "Your result shows this goes deeper than your profile. The Complete System covers confidence, communication, rejection resilience, and weekly action plans \u2014 alongside the full profile and style reset.";
+  }
+  if (weakCount >= 3) {
+    rec.name = "The Complete Dating Reset";
+    rec.why = "Multiple foundations need work. The Complete System gives you the full 8-week reset across all 5 pillars \u2014 built in sequence so each improvement compounds into the next.";
+  }
+  if (totalPct >= 80) {
+    rec.name = "The Dating Reset Starter Pack";
+    rec.why = "Your foundations are strong. The Starter Pack will help you fine-tune the visible layer \u2014 photos, bio, style \u2014 to match the solid base you already have.";
+  }
+  document.getElementById("rRecName").textContent = rec.name;
+  document.getElementById("rRecWhy").textContent = rec.why;
+
+  // Save to localStorage for personalized /thank-you
+  try {
+    localStorage.setItem("quizResult", JSON.stringify({
+      score: totalPct,
+      band: band,
+      archetype: arch.name,
+      weakest: weakest,
+      weakestPct: weakestPct,
+      recName: rec.name,
+      recWhy: rec.why
+    }));
+  } catch(e) {}
 
   // Mark weakest
   var rows = document.querySelectorAll(".r-row");
