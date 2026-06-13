@@ -189,7 +189,7 @@ src="https://www.facebook.com/tr?id=1006173865231321&ev=PageView&noscript=1"
   <p class="subtitle">Your personalised Dating Foundation report — score yourself, see your gaps, and get one action per pillar to start this week.</p>
 
   <!-- Download button -->
-  <a href="/dating-reset-free.pdf" download="dating-reset-free.pdf" class="download-btn">
+  <a href="#" onclick="downloadPDF(event)" class="download-btn">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
       <polyline points="7 10 12 15 17 10"></polyline>
@@ -197,6 +197,18 @@ src="https://www.facebook.com/tr?id=1006173865231321&ev=PageView&noscript=1"
     </svg>
     Download your action plan
   </a>
+  <script>
+  function downloadPDF(e) {
+    e.preventDefault();
+    var a = document.createElement('a');
+    a.href = '/dating-reset-free.pdf';
+    a.download = 'Dating-Foundation-Action-Plan.pdf';
+    a.target = '_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+  </script>
 
   <!-- Quiz result (populated by JS if available) -->
   <div id="quizSummary" style="display:none;">
