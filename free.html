@@ -87,13 +87,23 @@ body {
 .quiz { padding: 32px 0; }
 .q-bar { height: 3px; background: var(--border); margin-bottom: 8px; }
 .q-fill { height: 100%; background: var(--accent); transition: width .3s ease; }
-.q-count { font-family: var(--fm); font-size: .5625rem; color: var(--tmut); letter-spacing: .08em; margin-bottom: 24px; }
+.q-count { font-family: var(--fm); font-size: .5625rem; color: var(--tmut); letter-spacing: .08em; margin-bottom: 4px; }
+.q-scoring { font-family: var(--fm); font-size: .5rem; color: var(--tmut); letter-spacing: .04em; margin-bottom: 24px; opacity: 0.6; }
 .q-pillar { font-family: var(--fm); font-size: .5625rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
 .q-text { font-family: var(--fd); font-size: 1.25rem; line-height: 1.25; margin-bottom: 24px; }
 .q-opts { display: flex; flex-direction: column; gap: 10px; }
 .q-opt { display: block; width: 100%; text-align: left; padding: 14px 16px; background: var(--card); border: 1px solid var(--border); color: var(--text); font-family: var(--fb); font-size: .875rem; line-height: 1.4; cursor: pointer; transition: border-color .2s, background .2s; }
 .q-opt:hover { border-color: var(--accent); background: var(--elev); }
 .q-opt:active { background: var(--accent); color: var(--bg); }
+
+/* Calculating */
+.calc-dots { font-size: 24px; color: var(--accent); letter-spacing: 8px; margin-bottom: 16px; animation: pulse 1.2s ease infinite; }
+@keyframes pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+.calc-text { font-family: var(--fd); font-size: 1.25rem; color: var(--text); margin-bottom: 6px; }
+.calc-sub { font-family: var(--fm); font-size: .75rem; color: var(--tmut); }
+
+/* Preview */
+.prev-item { font-size: .875rem; color: var(--tsec); padding: 6px 0; }
 
 /* Results */
 .results { padding: 40px 0; }
@@ -183,12 +193,11 @@ body {
 <div class="screen active" id="s-intro">
 <section class="intro">
 <div class="w">
-  <h1 class="lp-h1">Not getting enough matches, replies, or dates? </h1>
-  <h1 class="lp-h1">Find the real bottleneck in 3 minutes.</h1>
+  <h1 class="lp-h1">Find your weakest dating foundation in 3 minutes.</h1>
   <p class="intro-sub-top">10 questions across Fitness, Style, Confidence, Communication, and Action.</p>
   <button class="btn-go" onclick="startQuiz()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-    Check my dating score
+    Find my weakest foundation
   </button>
   <div class="intro-micro">Free &bull; No signup to start &bull; Takes 3 minutes</div>
   <div class="intro-trust">No pickup tricks. No fake confidence. Just a practical dating foundation check.</div>
@@ -210,6 +219,7 @@ body {
   <div>
     <div class="q-bar"><div class="q-fill" id="qFill" style="width:10%"></div></div>
     <div class="q-count" id="qCount">Question 1 of 10</div>
+    <div class="q-scoring">Scoring your fitness, style, confidence, communication, and action.</div>
   </div>
   <div class="q-pillar" id="qPillar"></div>
   <div class="q-text" id="qText"></div>
@@ -218,11 +228,46 @@ body {
 </section>
 </div>
 
-<!-- RESULTS -->
+<!-- CALCULATING -->
+<div class="screen" id="s-calc">
+<section class="calc">
+<div class="w" style="text-align:center;padding:120px 0;">
+  <div class="calc-dots" id="calcDots">&#9679; &#9679; &#9679;</div>
+  <div class="calc-text">Calculating your Dating Foundation Score...</div>
+  <div class="calc-sub">Checking your five foundations.</div>
+</div>
+</section>
+</div>
+
+<!-- PREVIEW -->
+<div class="screen" id="s-preview">
+<section class="preview">
+<div class="w" style="padding:60px 0;">
+  <div style="text-align:center;margin-bottom:32px;">
+    <div class="r-arch-label">Complete</div>
+    <h2 class="lp-h1" style="margin-bottom:12px;">Your Dating Foundation Score is ready.</h2>
+    <p style="font-size:.875rem;color:var(--tsec);line-height:1.6;">Here is what we calculated from your answers:</p>
+  </div>
+  <div style="max-width:380px;margin:0 auto 32px;">
+    <div class="prev-item">&rarr; Your strongest foundation</div>
+    <div class="prev-item">&rarr; Your weakest dating bottleneck</div>
+    <div class="prev-item">&rarr; What may be costing you matches, replies, or dates</div>
+    <div class="prev-item">&rarr; Your next action step</div>
+  </div>
+  <div style="text-align:center;">
+    <button class="btn-go" onclick="showEmailCapture()" style="max-width:340px;">
+      Show my result
+    </button>
+  </div>
+</div>
+</section>
+</div>
+
+<!-- EMAIL CAPTURE -->
 <div class="screen" id="s-results">
 <section class="results">
 <div class="w">
-  <div class="r-head">
+  <div class="r-head" style="margin-bottom:24px;">
     <div class="r-label">Your Dating Foundation Score</div>
     <div class="r-big" id="rBig"></div>
     <div class="r-band" id="rBand"></div>
@@ -240,10 +285,10 @@ body {
   </div>
 
   <div class="r-cta">
-    <div class="r-ctag">Your 7-day action plan is ready</div>
-    <div class="r-ctitle">Get your personalised action plan</div>
+    <div class="r-ctag">Where should we send your action plan?</div>
+    <div class="r-ctitle">Get your full score breakdown and first action step by email.</div>
     <div class="r-cdesc-list">
-      <div class="r-cdesc-item">&rarr; Full score breakdown across all 5 foundations</div>
+      <div class="r-cdesc-item">&rarr; Full breakdown across all 5 foundations</div>
       <div class="r-cdesc-item">&rarr; Your first 3 actions for <span id="rGapInline">your weakest pillar</span></div>
       <div class="r-cdesc-item">&rarr; Your recommended reset path</div>
       <div class="r-cdesc-item">&rarr; 5-page PDF action plan</div>
@@ -252,7 +297,7 @@ body {
       <span class="r-flabel">Send my action plan</span>
       <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="893d8c2c-46ea-4ead-b5d9-e0a78026db77"></script>
     </div>
-    <div class="r-micro">PDF sent by email &bull; No spam &bull; Unsubscribe anytime</div>
+    <div class="r-micro">No spam. No pickup tricks. Just your result and next step.</div>
   </div>
 </div>
 </section>
@@ -270,7 +315,7 @@ body {
 <script>
 var QUESTIONS = [
   {pillar:"Fitness & Health", text:"Be honest: if you had to run for a bus right now, how would that go?", opts:["I would miss it and pretend I was not trying","I would make it but need a minute to recover","Fine \u2014 I move regularly","I would barely notice. I train consistently."]},
-  {pillar:"Fitness & Health", text:"What does your average weeknight look like at 11pm?", opts:["Phone in bed, no real routine","Varies \u2014 some good nights, some terrible","Usually in bed at a reasonable time","Locked in \u2014 sleep, nutrition, recovery all handled"]},
+  {pillar:"Fitness & Health", text:"Most nights, how well are you setting yourself up to look and feel good the next day?", opts:["Phone in bed, no real routine","Some good nights, some terrible","Usually in bed at a reasonable time","Sleep, nutrition, and recovery are mostly handled"]},
   {pillar:"Style & Grooming", text:"You are meeting someone for a date in 2 hours. How do you feel about your wardrobe?", opts:["Panic. Nothing looks right.","I would find something acceptable after 20 minutes","I have a few reliable outfits","I know exactly what I would wear"]},
   {pillar:"Style & Grooming", text:"A friend takes a candid photo of you at a bar. Your honest reaction?", opts:["Delete that immediately","It is fine... from certain angles","I would be OK with it","I would use it on my dating profile"]},
   {pillar:"Confidence & Mindset", text:"You see someone attractive at a coffee shop. What actually happens?", opts:["I think about saying something, do not, then replay it for 3 hours","I would want to but would need someone to push me","I might say something if the moment felt right","I would find a natural way to start a conversation"]},
@@ -278,7 +323,7 @@ var QUESTIONS = [
   {pillar:"Communication & Social", text:"Your last 5 dating app conversations. How many made it past 10 messages?", opts:["Zero. Maybe one.","One or two at best","About half","Most of them \u2014 conversations are not my problem"]},
   {pillar:"Communication & Social", text:"You are at a party where you know almost nobody. What do you do?", opts:["Stand near the wall, check my phone, leave early","Stick with the one person I came with","Eventually talk to a few people after warming up","I am comfortable walking up to anyone"]},
   {pillar:"Structured Action", text:"What is your current strategy for improving your dating life?", opts:["Strategy? I am just swiping and hoping","I watch YouTube videos when I get frustrated","I have tried a few things but nothing sticks","I have specific habits I work on every week"]},
-  {pillar:"Structured Action", text:"When something does not work in your dating life, what do you do?", opts:["Nothing \u2014 I get frustrated and take a break from apps","Change something random and see what happens","Try to figure out what went wrong","Track what works, adjust, and keep going"]}
+  {pillar:"Structured Action", text:"When dating is not working, how do you usually try to fix it?", opts:["I take a break and get frustrated","I change random things and hope","I try to figure out the real problem","I track what works and adjust"]}
 ];
 
 var INSIGHTS = {
@@ -367,11 +412,22 @@ function pickAnswer(score) {
     renderQ();
   } else {
     if (typeof fbq === "function") fbq("track", "QuizComplete");
-    showResults();
+    // Show calculating screen, then preview
+    show("s-calc");
+    setTimeout(function() {
+      calculateResults();
+      show("s-preview");
+      if (typeof fbq === "function") fbq("trackCustom", "ResultPreviewViewed");
+    }, 1800);
   }
 }
 
-function showResults() {
+function showEmailCapture() {
+  show("s-results");
+  if (typeof fbq === "function") fbq("trackCustom", "EmailCaptureViewed");
+}
+
+function calculateResults() {
   var scores = {};
   var maxes = {};
   var order = ["Fitness & Health", "Style & Grooming", "Confidence & Mindset", "Communication & Social", "Structured Action"];
@@ -478,8 +534,6 @@ function showResults() {
       pillars: pillarData
     }));
   } catch(e) {}
-
-  show("s-results");
 }
 
 function startQuiz() {
