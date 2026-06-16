@@ -420,12 +420,14 @@ function pickAnswer(score) {
     renderQ();
   } else {
     if (typeof fbq === "function") fbq("track", "QuizComplete");
+    if (typeof gtag === "function") gtag("event", "quiz_complete");
     // Show calculating screen, then preview
     show("s-calc");
     setTimeout(function() {
       calculateResults();
       show("s-preview");
       if (typeof fbq === "function") fbq("trackCustom", "ResultPreviewViewed");
+      if (typeof gtag === "function") gtag("event", "result_preview_viewed");
     }, 1800);
   }
 }
@@ -433,6 +435,7 @@ function pickAnswer(score) {
 function showEmailCapture() {
   show("s-results");
   if (typeof fbq === "function") fbq("trackCustom", "EmailCaptureViewed");
+  if (typeof gtag === "function") gtag("event", "email_capture_viewed");
 }
 
 function calculateResults() {
@@ -546,6 +549,7 @@ function calculateResults() {
 
 function startQuiz() {
   if (typeof fbq === "function") fbq("track", "QuizStart");
+  if (typeof gtag === "function") gtag("event", "quiz_start");
   document.getElementById("stickyBar").classList.remove("show");
   show("s-quiz");
   renderQ();
